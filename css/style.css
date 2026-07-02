@@ -323,7 +323,7 @@ width:100%;
 
 @media(max-width:768px){
 
-.cursor-glow{display:none;}
+.trail-dot{display:none;}
 
 nav{
 flex-direction:column;
