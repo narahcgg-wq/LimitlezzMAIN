@@ -51,23 +51,62 @@ body::after{right:-250px;}
 
 /* ================= NAVBAR ================= */
 
+/* ================= FLOATING NAVBAR ================= */
+
 nav{
+position:fixed;
+top:18px;
+left:50%;
+transform:translateX(-50%);
+
+width:min(94%,1350px);
+height:74px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-padding:22px 8%;
-background:rgba(0,0,0,.40);
+padding:0 30px;
+
+background:rgba(10,10,18,.82);
 backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,255,255,.08);
+-webkit-backdrop-filter:blur(18px);
 
-position:sticky;
-top:0;
-z-index:1000;
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
 
-transition:.35s ease;
+box-shadow:
+0 0 0 1px rgba(139,92,246,.15),
+0 0 25px rgba(139,92,246,.12),
+0 12px 40px rgba(0,0,0,.45);
+
+z-index:9999;
+
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+border-color .35s ease;
 }
 
+/* Purple outline glow */
+
+nav:hover{
+
+border-color:rgba(139,92,246,.65);
+
+box-shadow:
+0 0 0 1px rgba(139,92,246,.55),
+0 0 22px rgba(139,92,246,.30),
+0 0 60px rgba(139,92,246,.18),
+0 20px 45px rgba(0,0,0,.5);
+
+}
+
+/* keep hero below navbar */
+
+.hero{
+padding-top:170px;
+}
 /* scroll fade */
 nav.nav-fade{
 transform:translateY(-14px);
@@ -79,17 +118,22 @@ backdrop-filter:blur(10px);
 .logo{
 display:flex;
 align-items:center;
-gap:10px;
-font-size:28px;
-font-weight:900;
-letter-spacing:-1px;
+gap:12px;
+
+font-size:30px;
+font-weight:800;
 }
 
 .logo i{
+font-size:34px;
 color:var(--purple);
 }
 
-.logo span{
+.logo-text{
+color:#fff;
+}
+
+.logo-text span{
 color:var(--purple);
 }
 
