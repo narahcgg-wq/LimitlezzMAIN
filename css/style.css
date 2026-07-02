@@ -789,34 +789,3 @@ font-size:34px;
 }
 
 }
-
-/* Mobile menu animation */
-
-.nav-links{
-opacity:0;
-visibility:hidden;
-transform:translateY(-15px);
-transition:
-opacity .3s ease,
-transform .3s ease,
-visibility .3s;
-}
-
-.nav-links.active{
-opacity:1;
-visibility:visible;
-transform:translateY(0);
-}
-
-.nav-buttons{
-opacity:0;
-visibility:hidden;
-transition:
-opacity .3s ease,
-visibility .3s;
-}
-
-.nav-buttons.active{
-opacity:1;
-visibility:visible;
-}
