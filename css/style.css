@@ -289,58 +289,73 @@ padding-top:230px;
 
 }
 
-/* ================= DROPDOWN ================= */
+/* =========================================
+   GAME HOSTING DROPDOWN
+========================================= */
 
 .dropdown{
 position:relative;
 }
 
-.dropdown>a{
+.dropdown > a{
 display:flex;
 align-items:center;
 gap:8px;
 }
 
 .arrow{
-font-size:11px;
-transition:.3s;
+font-size:12px;
+transition:.3s ease;
 }
 
 .dropdown:hover .arrow{
 transform:rotate(180deg);
 }
 
+/* Dropdown Box */
+
 .dropdown-menu{
 
 position:absolute;
-top:60px;
+top:65px;
 left:50%;
-transform:translateX(-50%) translateY(12px);
+transform:translateX(-50%) translateY(10px);
 
-min-width:240px;
+width:300px;
 
-background:rgba(12,12,20,.96);
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(139,92,246,.20);
-border-radius:18px;
+display:flex;
+flex-direction:column;
 
 padding:10px;
+margin:0;
 
 list-style:none;
+
+background:rgba(12,12,20,.96);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(139,92,246,.18);
+border-radius:18px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.45),
+0 0 35px rgba(139,92,246,.15);
 
 opacity:0;
 visibility:hidden;
 
-transition:.3s ease;
+transition:
+opacity .25s ease,
+transform .25s ease;
 
-box-shadow:
-0 0 25px rgba(139,92,246,.15),
-0 18px 40px rgba(0,0,0,.45);
+z-index:99999;
 
-z-index:9999;
 }
 
+/* Show Dropdown */
+
+.dropdown:hover .dropdown-menu,
 .dropdown-menu.show{
 
 opacity:1;
@@ -349,9 +364,12 @@ transform:translateX(-50%) translateY(0);
 
 }
 
+/* Items */
+
 .dropdown-menu li{
 
 width:100%;
+margin:4px 0;
 
 }
 
@@ -359,26 +377,18 @@ width:100%;
 
 display:flex;
 align-items:center;
-gap:12px;
+gap:15px;
+
+width:100%;
 
 padding:14px 16px;
 
-border-radius:12px;
-
 text-decoration:none;
-color:white;
+color:#fff;
 
-font-size:15px;
-font-weight:600;
+border-radius:14px;
 
 transition:.25s;
-
-}
-
-.dropdown-menu li a i{
-
-color:var(--purple);
-width:18px;
 
 }
 
@@ -386,10 +396,37 @@ width:18px;
 
 background:rgba(139,92,246,.12);
 
-transform:translateX(4px);
+transform:translateX(6px);
 
 }
-/* ================= HERO ================= */
+
+.dropdown-menu i{
+
+font-size:22px;
+width:26px;
+
+color:#8b5cf6;
+text-align:center;
+
+}
+
+.dropdown-menu strong{
+
+display:block;
+font-size:15px;
+font-weight:700;
+
+}
+
+.dropdown-menu small{
+
+display:block;
+margin-top:2px;
+
+font-size:12px;
+color:#9ca3af;
+
+}/* ================= HERO ================= */
 
 .hero{
 min-height:100vh;
