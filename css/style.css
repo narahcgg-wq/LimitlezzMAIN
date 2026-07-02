@@ -481,16 +481,6 @@ background:#8b5cf6;
 border-radius:999px;
 }
 
-/* ================= PC NAVBAR 2-ROW ================= */
-
-@media(min-width:769px){
-
-nav{
-flex-direction:column;
-align-items:center;
-gap:10px;
-}
-
 /* BIG LOGO TOP */
 .logo{
 font-size:44px;
