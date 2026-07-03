@@ -129,4 +129,17 @@ document.querySelectorAll("nav a").forEach(link=>{
 
     }
 
+    const mobileBtn=document.querySelector(".mobile-menu-btn");
+const mobileMenu=document.querySelector(".mobile-menu");
+
+if(mobileBtn){
+
+mobileBtn.addEventListener("click",()=>{
+
+mobileMenu.classList.toggle("show");
+
+});
+
+}
+
 });
