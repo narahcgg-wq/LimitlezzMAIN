@@ -1,214 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limitlezz</title>
 
-<title>Limitlezz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="stylesheet" href="css/style.css">
+    <!-- Added version parameter (?v=99) to force update browser layout cache engines instantly -->
+    <link rel="stylesheet" href="css/style.css?v=99">
 </head>
-
 <body>
   
+    <!-- ================= NAVBAR SECTION ================= -->
+    <nav class="navbar">
+      
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-infinity"></i>
+            <span>LIMITLE<span>ZZ</span></span>
+        </a>
 
-<nav class="navbar">
-  
-    <a href="index.html" class="logo">
-        <i class="fa-solid fa-infinity"></i>
-        <span>LIMITLE<span>ZZ</span></span>
-    </a>
+        <!-- Desktop Navigation Directory Links -->
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="javascript:void(0);">
+                    <i class="fa-solid fa-gamepad"></i>
+                    Game Hosting
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="java.html">
+                            <i class="fa-solid fa-cube"></i>
+                            <div><strong>Minecraft Java</strong></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bedrock.html">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <div>
+                                <strong>Minecraft Bedrock</strong><br>
+                                <small>Pocket Edition Hosting</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>        
+            <li>
+                <a href="vps.html">
+                    <i class="fa-solid fa-server"></i>
+                    VPS Hosting
+                </a>
+            </li>
+            <li>
+                <a href="customs.html">
+                    <i class="fa-solid fa-code"></i>
+                    Customs
+                </a>
+            </li>
+            <li>
+                <a href="team.html">
+                    <i class="fa-solid fa-users"></i>
+                    Team
+                </a>
+            </li>
+        </ul>
 
-    <ul class="nav-links">
-
-
-<li class="dropdown">
-
-    <a href="javascript:void(0);">
-        <i class="fa-solid fa-gamepad"></i>
-        Game Hosting
-        <i class="fa-solid fa-chevron-down arrow"></i>
-    </a>
-
-    <ul class="dropdown-menu">
-
-        <li>
-            <a href="java.html">
-                <i class="fa-solid fa-cube"></i>
-                <div>
-                    <strong>Minecraft Java</strong><br>
-                </div>
+        <!-- Desktop Core CTA Buttons -->
+        <div class="nav-buttons">
+            <a href="#" class="login-btn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
             </a>
-        </li>
+            <a href="#" class="start-btn">Get Started</a>
+        </div>
 
-        <li>
-            <a href="bedrock.html">
-                <i class="fa-solid fa-mobile-screen"></i>
-                <div>
-                    <strong>Minecraft Bedrock</strong><br>
-                    <small>Pocket Edition Hosting</small>
-                </div>
+        <!-- Mobile Structural Flex Controls Container -->
+        <div class="mobile-actions">
+            <a href="vps.html" class="mobile-vps">VPS</a>
+            <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Absolute Dropdown Drawer Menu Menu Sheet Layout -->
+        <div class="mobile-menu">
+            <a href="gms.html">
+                <i class="fa-solid fa-gamepad"></i>
+                Game Hosting
             </a>
-        </li>
-
-    </ul>
-
-</li>        <li>
-            <a href="vps.html">
-                <i class="fa-solid fa-server"></i>
-                VPS Hosting
-            </a>
-        </li>
-
-        <li>
             <a href="customs.html">
                 <i class="fa-solid fa-code"></i>
                 Customs
             </a>
-        </li>
-
-        <li>
             <a href="team.html">
                 <i class="fa-solid fa-users"></i>
                 Team
             </a>
-        </li>
+            <a href="#">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+        </div>
 
+    </nav>
 
-    </ul>
+    <!-- ================= HERO LANDING SECTION ================= -->
+    <section class="hero">
+        <div class="status">
+            <i class="fa-solid fa-circle-check"></i> All Systems Operational
+        </div>
 
-    <div class="nav-buttons">
+        <h1>Hosting Built<br>For Communities</h1>
 
-        <a href="#" class="login-btn">
-            <i class="fa-solid fa-right-to-bracket"></i>
-            Login
-        </a>
+        <p>
+            From private SMPs to production VPS instances,
+            Limitlezz provides infrastructure that scales with your projects.
+        </p>
 
-        <a href="#" class="start-btn">
-            Get Started
-        </a>
+        <div class="buttons">
+            <a href="#" class="btn">Get Started</a>
+            <a href="#" class="btn-outline">View Services</a>
+        </div>
 
-    </div>
+        <div class="stats">
+            <div class="stat">
+                <h3>99.95%</h3>
+                <p>Uptime</p>
+            </div>
+            <div class="stat">
+                <h3>127+</h3>
+                <p>Deployments</p>
+            </div>
+            <div class="stat">
+                <h3>3</h3>
+                <p>Regions</p>
+            </div>
+        </div>
+    </section>
 
-<div class="mobile-actions">
+    <!-- ================= CONTEXT SERVICES GRID ================= -->
+    <section class="section" id="services">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-server"></i> VPS Hosting</h3>
+                <p>Ryzen powered virtual servers with NVMe storage and full root access.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-gamepad"></i> Game Servers</h3>
+                <p>Minecraft, Rust and custom game hosting built for communities.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-cubes"></i> Private SMP</h3>
+                <p>Premium SMP infrastructure with anti-cheat and automated backups.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-code"></i> Development</h3>
+                <p>Websites, plugins, bots and custom software solutions.</p>
+            </div>
+        </div>
+    </section>
 
-    <a href="vps.html" class="mobile-vps">
-        VPS
-    </a>
-
-    <button class="mobile-menu-btn">
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-    </button>
-
-</div>
-
-<div class="mobile-menu">
-
-    <a href="gms.html">
-        <i class="fa-solid fa-gamepad"></i>
-        Game Hosting
-    </a>
-
-    <a href="customs.html">
-        <i class="fa-solid fa-code"></i>
-        Customs
-    </a>
-
-    <a href="team.html">
-        <i class="fa-solid fa-users"></i>
-        Team
-    </a>
-
-    <a href="#">
-        <i class="fa-solid fa-right-to-bracket"></i>
-        Login
-    </a>
-
-</div>
-
-</nav>
-<section class="hero">
-
-  <div class="status">
-    <i class="fa-solid fa-circle-check"></i>
-    All Systems Operational
-  </div>
-
-  <h1>
-    Hosting Built<br>
-    For Communities
-  </h1>
-
-  <p>
-    From private SMPs to production VPS instances,
-    Limitlezz provides infrastructure that scales with your projects.
-  </p>
-
-  <div class="buttons">
-    <a href="#" class="btn">Get Started</a>
-    <a href="#" class="btn-outline">View Services</a>
-  </div>
-
-  <div class="stats">
-    <div class="stat">
-      <h3>99.95%</h3>
-      <p>Uptime</p>
-    </div>
-
-    <div class="stat">
-      <h3>127+</h3>
-      <p>Deployments</p>
-    </div>
-
-    <div class="stat">
-      <h3>3</h3>
-      <p>Regions</p>
-    </div>
-  </div>
-
-</section>
-
-<section class="section" id="services">
-
-<h2>Our Services</h2>
-
-<div class="grid">
-
-  <div class="card">
-    <h3><i class="fa-solid fa-server"></i> VPS Hosting</h3>
-    <p>Ryzen powered virtual servers with NVMe storage and full root access.</p>
-  </div>
-
-  <div class="card">
-    <h3><i class="fa-solid fa-gamepad"></i> Game Servers</h3>
-    <p>Minecraft, Rust and custom game hosting built for communities.</p>
-  </div>
-
-  <div class="card">
-    <h3><i class="fa-solid fa-cubes"></i> Private SMP</h3>
-    <p>Premium SMP infrastructure with anti-cheat and automated backups.</p>
-  </div>
-
-  <div class="card">
-    <h3><i class="fa-solid fa-code"></i> Development</h3>
-    <p>Websites, plugins, bots and custom software solutions.</p>
-  </div>
-
-</div>
-
-</section>
-
-<section class="section">
-<h2>Infrastructure</h2>
-
-<div class="terminal">
+    <!-- ================= TERMINAL INFRASTRUCTURE BLOCK ================= -->
+    <section class="section">
+        <h2>Infrastructure</h2>
+        <div class="terminal">
 <pre>
 root@limitlezz:~# uptime
 99.95% uptime
@@ -222,43 +182,38 @@ Nodes ...... ONLINE
 
 root@limitlezz:~#
 </pre>
-</div>
-</section>
+        </div>
+    </section>
 
-<section class="section">
-<h2>Why Limitlezz?</h2>
+    <!-- ================= VALUE STATEMENT MATRIX ================= -->
+    <section class="section">
+        <h2>Why Limitlezz?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-bolt"></i> Fast Deployment</h3>
+                <p>Deploy servers within minutes with optimized infrastructure.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-shield-halved"></i> Protected</h3>
+                <p>Advanced protection against common attacks and downtime.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-headset"></i> Support</h3>
+                <p>Fast responses and direct communication when needed.</p>
+            </div>
+        </div>
+    </section>
 
-<div class="grid">
+    <!-- ================= SITE FOOTER ================= -->
+    <footer>
+        <div class="footer-content">
+            <h3>LIMITLEZZ</h3>
+            <p>Built by Limitlezz.</p>
+            <p>Powered by caffeine and bad decisions.</p>
+        </div>
+    </footer>
 
-  <div class="card">
-    <h3><i class="fa-solid fa-bolt"></i> Fast Deployment</h3>
-    <p>Deploy servers within minutes with optimized infrastructure.</p>
-  </div>
-
-  <div class="card">
-    <h3><i class="fa-solid fa-shield-halved"></i> Protected</h3>
-    <p>Advanced protection against common attacks and downtime.</p>
-  </div>
-
-  <div class="card">
-    <h3><i class="fa-solid fa-headset"></i> Support</h3>
-    <p>Fast responses and direct communication when needed.</p>
-  </div>
-
-</div>
-
-</section>
-
-<footer>
-<div class="footer-content">
-  <h3>LIMITLEZZ</h3>
-  <p>Built by Limitlezz.</p>
-  <p>Powered by caffeine and bad decisions.</p>
-</div>
-</footer>
-
-<script src="js/cursor.js"></script>
-<script src="js/navbar.js"></script>
-
+    <script src="js/cursor.js"></script>
+    <script src="js/navbar.js"></script>
 </body>
 </html>
