@@ -4,77 +4,104 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const navbar = document.querySelector(".navbar");
-const mobileBtn = document.querySelector(".mobile-menu");
-const navLinks = document.querySelector(".nav-links");
-const dropdown = document.querySelector(".dropdown");
+    const navbar = document.querySelector(".navbar");
 
-// ===========================
-// Mobile Menu
-// ===========================
+    // ==========================
+    // MOBILE MENU
+    // ==========================
 
-if (mobileBtn && navLinks) {
+    const mobileBtn = document.querySelector(".mobile-menu-btn");
+    const mobileMenu = document.querySelector(".mobile-menu");
 
-mobileBtn.addEventListener("click", () => {
+    if (mobileBtn && mobileMenu) {
 
-navLinks.classList.toggle("active");
+        mobileBtn.addEventListener("click", () => {
 
-});
+            mobileMenu.classList.toggle("active");
 
-}
+        });
 
-// ===========================
-// Mobile Dropdown
-// ===========================
+    }
 
-if (dropdown && window.innerWidth <= 900) {
+    // ==========================
+    // GAME HOSTING DROPDOWN
+    // ==========================
 
-const trigger = dropdown.querySelector("a");
+    const dropdown = document.querySelector(".dropdown");
 
-trigger.addEventListener("click", function(e){
+    if (dropdown) {
 
-e.preventDefault();
+        const menu = dropdown.querySelector(".dropdown-menu");
 
-dropdown.classList.toggle("active");
+        // Desktop
+        if (window.innerWidth > 900) {
 
-});
+            dropdown.addEventListener("mouseenter", () => {
+                menu.classList.add("show");
+            });
 
-}
+            dropdown.addEventListener("mouseleave", () => {
+                menu.classList.remove("show");
+            });
 
-// ===========================
-// Navbar Scroll Effect
-// ===========================
+        }
 
-window.addEventListener("scroll", () => {
+        // Mobile
+        else {
 
-if(window.scrollY > 30){
+            const trigger = dropdown.querySelector("a");
 
-navbar.classList.add("scrolled");
+            trigger.addEventListener("click", function (e) {
 
-}else{
+                e.preventDefault();
 
-navbar.classList.remove("scrolled");
+                menu.classList.toggle("show");
 
-}
+            });
 
-});
+        }
 
-// ===========================
-// Active Page
-// ===========================
+    }
 
-const page = window.location.pathname.split("/").pop();
+    // ==========================
+    // NAVBAR SCROLL EFFECT
+    // ==========================
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
+    window.addEventListener("scroll", () => {
 
-const href = link.getAttribute("href");
+        if (!navbar) return;
 
-if(page === href || (page === "" && href === "index.html")){
+        if (window.scrollY > 20) {
 
-link.classList.add("active");
+            navbar.classList.add("scrolled");
 
-}
+        } else {
 
-});
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+    // ==========================
+    // ACTIVE PAGE
+    // ==========================
+
+    const current = window.location.pathname.split("/").pop();
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (
+            href === current ||
+            (current === "" && href === "index.html")
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
 
 });
