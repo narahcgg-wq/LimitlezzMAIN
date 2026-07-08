@@ -1,96 +1,94 @@
-// ================= CUSTOM DOT CURSOR =================
+// ===========================
+// MOBILE MENU
+// ===========================
 
-const DOT_COUNT = 20;
-const dots = [];
+const mobileBtn = document.querySelector(".mobile-menu");
+const navLinks = document.querySelector(".nav-links");
 
-let mouse = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
-};
+if (mobileBtn) {
 
-document.addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-});
+    mobileBtn.addEventListener("click", () => {
 
-// Create trail dots
-for (let i = 0; i < DOT_COUNT; i++) {
+        navLinks.classList.toggle("active");
 
-    const dot = document.createElement("div");
-    dot.className = "trail-dot";
-
-    document.body.appendChild(dot);
-
-    dots.push({
-        x: mouse.x,
-        y: mouse.y,
-        scale: (DOT_COUNT - i) / DOT_COUNT,
-        element: dot
     });
 
 }
 
-function animate() {
+// ===========================
+// MOBILE DROPDOWN
+// ===========================
 
-    let x = mouse.x;
-    let y = mouse.y;
+const dropdown = document.querySelector(".dropdown");
 
-    dots.forEach((dot) => {
+if (dropdown && window.innerWidth <= 900) {
 
-        dot.x += (x - dot.x) * 0.35;
-        dot.y += (y - dot.y) * 0.35;
+    dropdown.querySelector("a").addEventListener("click", function(e) {
 
-        dot.element.style.left = dot.x + "px";
-        dot.element.style.top = dot.y + "px";
+        e.preventDefault();
 
-        dot.element.style.transform =
-            `translate(-50%, -50%) scale(${dot.scale})`;
-
-        dot.element.style.opacity = dot.scale;
-
-        x = dot.x;
-        y = dot.y;
+        dropdown.classList.toggle("active");
 
     });
-
-    requestAnimationFrame(animate);
 
 }
 
-animate();
+// ===========================
+// DESKTOP DROPDOWN
+// ===========================
 
-// Grow trail when hovering interactive elements
-const hoverItems = document.querySelectorAll(
-    "a, button, .btn, .btn-outline, .card"
-);
+if (dropdown && window.innerWidth > 900) {
 
-hoverItems.forEach(item => {
+    const menu = dropdown.querySelector(".dropdown-menu");
 
-    item.addEventListener("mouseenter", () => {
+    dropdown.addEventListener("mouseenter", () => {
 
-        dots.forEach(dot => {
-            dot.element.style.width = "14px";
-            dot.element.style.height = "14px";
-        });
+        menu.classList.add("show");
 
     });
 
-    item.addEventListener("mouseleave", () => {
+    dropdown.addEventListener("mouseleave", () => {
 
-        dots.forEach(dot => {
-            dot.element.style.width = "10px";
-            dot.element.style.height = "10px";
-        });
+        menu.classList.remove("show");
 
     });
+
+}
+
+// ===========================
+// NAVBAR SCROLL
+// ===========================
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 30) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
+    }
 
 });
 
-// Hide cursor trail on touch devices
-if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+// ===========================
+// ACTIVE PAGE
+// ===========================
 
-    dots.forEach(dot => {
-        dot.element.style.display = "none";
-    });
+const current = window.location.pathname.split("/").pop();
 
-}
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    const href = link.getAttribute("href");
+
+    if (href === current || (current === "" && href === "index.html")) {
+
+        link.classList.add("active");
+
+    }
+
+});
