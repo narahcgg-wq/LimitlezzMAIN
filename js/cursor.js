@@ -1,94 +1,109 @@
-// ===========================
-// MOBILE MENU
-// ===========================
+// ======================================
+// LIMITLEZZ CURSOR
+// ======================================
 
-const mobileBtn = document.querySelector(".mobile-menu");
-const navLinks = document.querySelector(".nav-links");
+if(window.innerWidth > 768){
 
-if (mobileBtn) {
+const DOTS = 20;
 
-    mobileBtn.addEventListener("click", () => {
+const dots = [];
 
-        navLinks.classList.toggle("active");
+let mouse = {
 
-    });
+x:window.innerWidth/2,
 
-}
+y:window.innerHeight/2
 
-// ===========================
-// MOBILE DROPDOWN
-// ===========================
+};
 
-const dropdown = document.querySelector(".dropdown");
+document.addEventListener("mousemove",e=>{
 
-if (dropdown && window.innerWidth <= 900) {
+mouse.x=e.clientX;
 
-    dropdown.querySelector("a").addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        dropdown.classList.toggle("active");
-
-    });
-
-}
-
-// ===========================
-// DESKTOP DROPDOWN
-// ===========================
-
-if (dropdown && window.innerWidth > 900) {
-
-    const menu = dropdown.querySelector(".dropdown-menu");
-
-    dropdown.addEventListener("mouseenter", () => {
-
-        menu.classList.add("show");
-
-    });
-
-    dropdown.addEventListener("mouseleave", () => {
-
-        menu.classList.remove("show");
-
-    });
-
-}
-
-// ===========================
-// NAVBAR SCROLL
-// ===========================
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 30) {
-
-        navbar.classList.add("scrolled");
-
-    } else {
-
-        navbar.classList.remove("scrolled");
-
-    }
+mouse.y=e.clientY;
 
 });
 
-// ===========================
-// ACTIVE PAGE
-// ===========================
+for(let i=0;i<DOTS;i++){
 
-const current = window.location.pathname.split("/").pop();
+const d=document.createElement("div");
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+d.className="trail-dot";
 
-    const href = link.getAttribute("href");
+document.body.appendChild(d);
 
-    if (href === current || (current === "" && href === "index.html")) {
+dots.push({
 
-        link.classList.add("active");
+x:mouse.x,
 
-    }
+y:mouse.y,
+
+scale:(DOTS-i)/DOTS,
+
+el:d
 
 });
+
+}
+
+function animate(){
+
+let x=mouse.x;
+
+let y=mouse.y;
+
+dots.forEach(dot=>{
+
+dot.x+=(x-dot.x)*0.35;
+
+dot.y+=(y-dot.y)*0.35;
+
+dot.el.style.left=dot.x+"px";
+
+dot.el.style.top=dot.y+"px";
+
+dot.el.style.opacity=dot.scale;
+
+dot.el.style.transform=`translate(-50%,-50%) scale(${dot.scale})`;
+
+x=dot.x;
+
+y=dot.y;
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+document.querySelectorAll("a,.btn,.btn-outline,.card,button").forEach(el=>{
+
+el.addEventListener("mouseenter",()=>{
+
+dots.forEach(dot=>{
+
+dot.el.style.width="14px";
+
+dot.el.style.height="14px";
+
+});
+
+});
+
+el.addEventListener("mouseleave",()=>{
+
+dots.forEach(dot=>{
+
+dot.el.style.width="10px";
+
+dot.el.style.height="10px";
+
+});
+
+});
+
+});
+
+}
