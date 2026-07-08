@@ -7,8 +7,8 @@ font-family:'Space Grotesk',sans-serif;
 }
 
 :root{
-
---purple:#8b5cf6;
+                        
+--purple:#8b5cf6;  
 --purple-light:#c084fc;
 --purple-dark:#6d28d9;
 
@@ -1200,3 +1200,24 @@ html{
 scroll-padding-top:120px;
 
 }
+
+.mobile-menu{
+display:none;
+}
+
+@media (max-width:900px){
+
+.mobile-menu{
+display:block;
+font-size:22px;
+cursor:pointer;
+color:white;
+}
+
+.nav-buttons{
+display:none;
+}
+
+}
+
+
