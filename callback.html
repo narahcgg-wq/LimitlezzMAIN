@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Limitlezz Login</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+background:#050505;
+color:white;
+
+}
+
+.loader{
+
+width:60px;
+height:60px;
+
+border:6px solid #2b2b2b;
+border-top:6px solid #8b5cf6;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+margin-bottom:25px;
+
+}
+
+@keyframes spin{
+
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+
+}
+
+h2{
+
+margin-bottom:10px;
+
+}
+
+p{
+
+color:#bdbdbd;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="loader"></div>
+
+<h2>Logging into Limitlezz...</h2>
+
+<p>Please wait...</p>
+
+<script>
+
+const hash = window.location.hash.substring(1);
+
+const params = new URLSearchParams(hash);
+
+const token = params.get("access_token");
+
+if(!token){
+
+window.location.href="index.html";
+
+}
+
+localStorage.setItem("discord_token",token);
+
+fetch("https://discord.com/api/users/@me",{
+
+headers:{
+Authorization:"Bearer "+token
+}
+
+})
+
+.then(res=>res.json())
+
+.then(user=>{
+
+localStorage.setItem("discord_user",JSON.stringify(user));
+
+window.location.href="index.html";
+
+})
+
+.catch(err=>{
+
+console.error(err);
+
+window.location.href="index.html";
+
+});
+
+</script>
+
+</body>
+
+</html>
