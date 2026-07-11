@@ -76,3 +76,51 @@ location.reload();
 });
 
 }
+
+
+
+// ======================
+// PROFILE DROPDOWN
+// ======================
+
+const profile = document.getElementById("user-profile");
+const dropdown = document.querySelector(".profile-dropdown");
+
+if(profile && dropdown){
+
+profile.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+dropdown.classList.toggle("show");
+
+});
+
+document.addEventListener("click",()=>{
+
+dropdown.classList.remove("show");
+
+});
+
+}
+
+// ======================
+// LOGOUT
+// ======================
+
+const logoutBtn=document.getElementById("logout-btn");
+
+if(logoutBtn){
+
+logoutBtn.addEventListener("click",(e)=>{
+
+e.preventDefault();
+
+localStorage.removeItem("discord_token");
+localStorage.removeItem("discord_user");
+
+location.reload();
+
+});
+
+}
