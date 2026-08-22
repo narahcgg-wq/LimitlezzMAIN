@@ -1,338 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Game Servers | LIMITLEZZ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Select Game Platform | Limitlezz</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Space Grotesk", sans-serif;
-        }
+<link href="https://googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at top, rgba(139, 92, 246, 0.16), transparent 35%),
-                #050505;
-            color: white;
-            overflow-x: hidden;
-        }
+<link rel="stylesheet" href="https://cloudflare.com">
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+<link rel="stylesheet" href="css/style.css">
 
-        /* NAVBAR */
-
-        nav {
-            height: 78px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 7%;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            background: rgba(5,5,5,0.75);
-            backdrop-filter: blur(18px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            font-size: 21px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 11px;
-            background: linear-gradient(135deg, #8b5cf6, #c084fc);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 19px;
-            box-shadow: 0 0 25px rgba(139,92,246,.35);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #aaa;
-            font-size: 14px;
-            transition: .25s;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* HERO */
-
-        .hero {
-            text-align: center;
-            padding: 85px 20px 50px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 7px 14px;
-            border: 1px solid rgba(139,92,246,.35);
-            border-radius: 100px;
-            color: #c084fc;
-            font-size: 12px;
-            background: rgba(139,92,246,.08);
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 76px);
-            line-height: 1;
-            font-weight: 700;
-            letter-spacing: -3px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, #8b5cf6, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: 22px auto 0;
-            color: #999;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* SERVER TYPE CARDS */
-
-        .servers {
-            width: min(1050px, 90%);
-            margin: 25px auto 100px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .server-card {
-            position: relative;
-            min-height: 420px;
-            border: 1px solid rgba(255,255,255,.09);
-            border-radius: 25px;
-            overflow: hidden;
-            background: rgba(15,15,15,.72);
-            transition: .35s;
-        }
-
-        .server-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(139,92,246,.55);
-            box-shadow: 0 20px 60px rgba(0,0,0,.45);
-        }
-
-        .server-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            background: #101010;
-        }
-
-        .server-content {
-            padding: 25px;
-        }
-
-        .server-content h2 {
-            font-size: 27px;
-            margin-bottom: 10px;
-        }
-
-        .server-content p {
-            color: #999;
-            line-height: 1.6;
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
-
-        .choose-btn {
-            width: 100%;
-            padding: 13px;
-            border: 0;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #8b5cf6, #a855f7);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: .25s;
-        }
-
-        .choose-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 25px rgba(139,92,246,.3);
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid rgba(255,255,255,.07);
-            padding: 30px 7%;
-            color: #666;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media(max-width: 750px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 60px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            .servers {
-                grid-template-columns: 1fr;
-                width: 92%;
-            }
-
-            .server-card {
-                min-height: auto;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-<nav>
-    <a href="index.html" class="logo">
-        <div class="logo-icon">∞</div>
-        LIMITLEZZ
-    </a>
+<div class="cursor-glow"></div>
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="vps.html">VPS Hosting</a>
-        <a href="gmsdecide.html">Game Servers</a>
-        <a href="team.html">Team</a>
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+<i class="fa-solid fa-infinity"></i>
+<span class="logo-text">LIMITLE<span>ZZ</span></span>
+</a>
+
+<ul class="nav-links">
+
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li class="dropdown">
+
+<a href="#" class="active">
+<i class="fa-solid fa-gamepad"></i>
+Game Hosting
+<i class="fa-solid fa-chevron-down arrow"></i>
+</a>
+
+<div class="dropdown-menu">
+
+<a href="gmsdecide.html">
+<i class="fa-solid fa-cube"></i>
+Minecraft Java
+</a>
+
+<a href="gmsdecide.html">
+<i class="fa-solid fa-mobile-screen"></i>
+Minecraft Bedrock
+</a>
+
+</div>
+
+</li>
+
+<li>
+<a href="vps.html">
+<i class="fa-solid fa-server"></i>
+VPS Hosting
+</a>
+</li>
+
+<li>
+<a href="customs.html">
+<i class="fa-solid fa-code"></i>
+Customs
+</a>
+</li>
+
+<li>
+<a href="team.html">
+<i class="fa-solid fa-users"></i>
+Team
+</a>
+</li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<a href="#" id="discord-login" class="login-btn">
+<i class="fa-brands fa-discord"></i>
+Login
+</a>
+
+<div id="user-profile" class="user-profile" style="display:none;">
+
+    <img id="user-avatar" src="" alt="Avatar">
+
+    <span id="user-name"></span>
+
+    <i class="fa-solid fa-chevron-down"></i>
+
+    <div class="profile-dropdown">
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-gamepad"></i>
+            My Servers
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-server"></i>
+            VPS
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-credit-card"></i>
+            Billing
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+
+        <hr>
+
+        <a href="#" id="logout-btn" class="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+
     </div>
+
+</div>
+  
+<!-- Mobile Right Side -->
+
+<div class="mobile-actions">
+
+<a href="vps.html" class="mobile-vps">
+VPS
+</a>
+
+<button class="mobile-menu-btn">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</button>
+
+</div>
+
+<!-- Mobile Dropdown -->
+
+<div class="mobile-menu">
+
+<a href="gmsdecide.html">
+<i class="fa-solid fa-gamepad"></i>
+Game Hosting
+</a>
+
+<a href="customs.html">
+<i class="fa-solid fa-code"></i>
+Customs
+</a>
+
+<a href="team.html">
+<i class="fa-solid fa-users"></i>
+Team
+</a>
+
+<a href="#">
+<i class="fa-solid fa-right-to-bracket"></i>
+Login
+</a>
+
+</div>
+
 </nav>
+
+<!-- ================= PLATFORM SELECTION HERO ================= -->
 
 <section class="hero">
 
-    <div class="badge">
-        PREMIUM GAME HOSTING
-    </div>
+<h1>
+Choose Your 
+<br>
+Platform
+</h1>
 
-    <h1>
-        Choose Your <span>Server</span>
-    </h1>
-
-    <p>
-        Powerful, reliable and affordable game hosting built for
-        communities of every size.
-    </p>
+<p>
+Select your version of Minecraft below to explore our high-performance, 
+optimized hosting packages built specifically for your community.
+</p>
 
 </section>
 
-<section class="servers">
+<!-- ================= DECISION CARDS ================= -->
 
-    <!-- JAVA -->
+<section class="section" style="padding-top: 0;">
 
-    <div class="server-card">
+<div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
 
-        <img
-            src="officialhost.png"
-            alt="Minecraft Java Server"
-            class="server-image"
-        >
-
-        <div class="server-content">
-
-            <h2>☕ Minecraft Java</h2>
-
-            <p>
-                High-performance Minecraft Java hosting with
-                powerful hardware, low latency and full server control.
-            </p>
-
-            <button
-                class="choose-btn"
-                onclick="location.href='gms.html?type=java'">
-                Choose Java
-            </button>
-
+<!-- Minecraft Java Edition Card (Official Host) -->
+<div class="card" style="text-align: center; padding: 3rem 2rem; display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
+    <div>
+        <div style="margin-bottom: 1.5rem; height: 100px; display: flex; align-items: center; justify-content: center;">
+            <img src="assets/details/officialhost.png" alt="Official Host Badge" style="max-height: 100%; max-width: 100%; object-fit: contain;">
         </div>
-
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Java Edition</h3>
+        <p style="margin-bottom: 2rem; color: #a1a1aa; font-size: 1rem; line-height: 1.6;">
+            Optimized for PC players. Supports custom jars, intensive modpacks (Forge/Fabric), plugins (Paper/Purpur), and advanced server configurations.
+        </p>
     </div>
+    <!-- Change "java-packages.html" to your actual destination link later -->
+    <a href="java-packages.html" class="btn" style="width: 100%; box-sizing: border-box; text-align: center;">View Java Plans</a>
+</div>
 
-    <!-- BEDROCK -->
-
-    <div class="server-card">
-
-        <img
-            src="officialhost.png"
-            alt="Minecraft Bedrock Server"
-            class="server-image"
-        >
-
-        <div class="server-content">
-
-            <h2>📱 Minecraft Bedrock</h2>
-
-            <p>
-                Host Minecraft Bedrock servers for players on
-                mobile, console and Windows devices.
-            </p>
-
-            <button
-                class="choose-btn"
-                onclick="location.href='gms.html?type=bedrock'">
-                Choose Bedrock
-            </button>
-
+<!-- Minecraft Bedrock Edition Card (Reseller) -->
+<div class="card" style="text-align: center; padding: 3rem 2rem; display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
+    <div>
+        <div style="margin-bottom: 1.5rem; height: 100px; display: flex; align-items: center; justify-content: center;">
+            <img src="assets/details/Reseller.png" alt="Reseller Badge" style="max-height: 100%; max-width: 100%; object-fit: contain;">
         </div>
-
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Bedrock Edition</h3>
+        <p style="margin-bottom: 2rem; color: #a1a1aa; font-size: 1rem; line-height: 1.6;">
+            Built for mobile devices, consoles, and Windows 10/11 players. Offers fast performance, easy joining, and seamless addon support.
+        </p>
     </div>
+    <!-- Change "bedrock-packages.html" to your actual destination link later -->
+    <a href="bedrock-packages.html" class="btn" style="width: 100%; box-sizing: border-box; text-align: center;">View Bedrock Plans</a>
+</div>
+
+</div>
 
 </section>
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
-    © 2026 LIMITLEZZ — All rights reserved.
+
+<div class="footer-content">
+
+<h3>LIMITLEZZ</h3>
+
+<p>Built by the Limitlezz Team.</p>
+
+<p>Powered by caffeine and bad decisions.</p>
+
+</div>
+
 </footer>
 
+<!-- ================= SCRIPTS ================= -->
+
+<script src="js/cursor.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/discord.js"></script>
+  
 </body>
+
 </html>
