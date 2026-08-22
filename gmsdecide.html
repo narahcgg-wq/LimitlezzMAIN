@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Game Servers | LIMITLEZZ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, rgba(139, 92, 246, 0.16), transparent 35%),
+                #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 78px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(5,5,5,0.75);
+            backdrop-filter: blur(18px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #8b5cf6, #c084fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            box-shadow: 0 0 25px rgba(139,92,246,.35);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 85px 20px 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid rgba(139,92,246,.35);
+            border-radius: 100px;
+            color: #c084fc;
+            font-size: 12px;
+            background: rgba(139,92,246,.08);
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #8b5cf6, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 22px auto 0;
+            color: #999;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* SERVER TYPE CARDS */
+
+        .servers {
+            width: min(1050px, 90%);
+            margin: 25px auto 100px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .server-card {
+            position: relative;
+            min-height: 420px;
+            border: 1px solid rgba(255,255,255,.09);
+            border-radius: 25px;
+            overflow: hidden;
+            background: rgba(15,15,15,.72);
+            transition: .35s;
+        }
+
+        .server-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139,92,246,.55);
+            box-shadow: 0 20px 60px rgba(0,0,0,.45);
+        }
+
+        .server-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #101010;
+        }
+
+        .server-content {
+            padding: 25px;
+        }
+
+        .server-content h2 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .server-content p {
+            color: #999;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .choose-btn {
+            width: 100%;
+            padding: 13px;
+            border: 0;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .choose-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(139,92,246,.3);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,.07);
+            padding: 30px 7%;
+            color: #666;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 750px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .servers {
+                grid-template-columns: 1fr;
+                width: 92%;
+            }
+
+            .server-card {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">∞</div>
+        LIMITLEZZ
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="vps.html">VPS Hosting</a>
+        <a href="gmsdecide.html">Game Servers</a>
+        <a href="team.html">Team</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="badge">
+        PREMIUM GAME HOSTING
+    </div>
+
+    <h1>
+        Choose Your <span>Server</span>
+    </h1>
+
+    <p>
+        Powerful, reliable and affordable game hosting built for
+        communities of every size.
+    </p>
+
+</section>
+
+<section class="servers">
+
+    <!-- JAVA -->
+
+    <div class="server-card">
+
+        <img
+            src="officialhost.png"
+            alt="Minecraft Java Server"
+            class="server-image"
+        >
+
+        <div class="server-content">
+
+            <h2>☕ Minecraft Java</h2>
+
+            <p>
+                High-performance Minecraft Java hosting with
+                powerful hardware, low latency and full server control.
+            </p>
+
+            <button
+                class="choose-btn"
+                onclick="location.href='gms.html?type=java'">
+                Choose Java
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- BEDROCK -->
+
+    <div class="server-card">
+
+        <img
+            src="officialhost.png"
+            alt="Minecraft Bedrock Server"
+            class="server-image"
+        >
+
+        <div class="server-content">
+
+            <h2>📱 Minecraft Bedrock</h2>
+
+            <p>
+                Host Minecraft Bedrock servers for players on
+                mobile, console and Windows devices.
+            </p>
+
+            <button
+                class="choose-btn"
+                onclick="location.href='gms.html?type=bedrock'">
+                Choose Bedrock
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 LIMITLEZZ — All rights reserved.
+</footer>
+
+</body>
+</html>
