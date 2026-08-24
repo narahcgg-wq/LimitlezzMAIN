@@ -2,11 +2,15 @@
    LIMITLEZZ GLOBAL CSS
    ========================================================= */
 
+/* =========================
+   RESET
+   ========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -16,9 +20,8 @@
     --purple-dark: #6d28d9;
 
     --bg: #050505;
-    --card-bg: rgba(15, 15, 20, .72);
+    --card-bg: rgba(15, 15, 20, 0.72);
 
-    /* COMBUSTION */
     --combustion-orange: #ff6a00;
     --combustion-red: #ff2600;
     --combustion-yellow: #ffb300;
@@ -33,8 +36,8 @@ html {
 body {
     background:
         linear-gradient(
-            rgba(0, 0, 0, .72),
-            rgba(0, 0, 0, .72)
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.72)
         ),
         url("../assets/obsidian-bg.jpg");
 
@@ -44,7 +47,6 @@ body {
     background-attachment: fixed;
 
     color: #fff;
-
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
@@ -61,13 +63,14 @@ body::after {
     top: 0;
     width: 500px;
     height: 100%;
+
     pointer-events: none;
     z-index: -1;
 
     background:
         radial-gradient(
             circle,
-            rgba(139, 92, 246, .18),
+            rgba(139, 92, 246, 0.18),
             transparent 70%
         );
 }
@@ -101,43 +104,45 @@ body::after {
 
     padding: 0 28px;
 
-    background: rgba(10, 10, 18, .82);
+    background: rgba(10, 10, 18, 0.82);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
-    border: 1px solid rgba(139, 92, 246, .18);
-
+    border: 1px solid rgba(139, 92, 246, 0.18);
     border-radius: 22px;
 
     box-shadow:
-        0 0 0 1px rgba(139, 92, 246, .12),
-        0 0 24px rgba(139, 92, 246, .12),
-        0 15px 45px rgba(0, 0, 0, .45);
+        0 0 0 1px rgba(139, 92, 246, 0.12),
+        0 0 24px rgba(139, 92, 246, 0.12),
+        0 15px 45px rgba(0, 0, 0, 0.45);
 
-    transition: .35s;
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 
     z-index: 9999;
 }
 
 .navbar:hover {
-    border-color: rgba(139, 92, 246, .45);
+    border-color: rgba(139, 92, 246, 0.45);
 
     box-shadow:
-        0 0 0 1px rgba(139, 92, 246, .45),
-        0 0 25px rgba(139, 92, 246, .25),
-        0 0 70px rgba(139, 92, 246, .15),
-        0 20px 55px rgba(0, 0, 0, .55);
+        0 0 0 1px rgba(139, 92, 246, 0.45),
+        0 0 25px rgba(139, 92, 246, 0.25),
+        0 0 70px rgba(139, 92, 246, 0.15),
+        0 20px 55px rgba(0, 0, 0, 0.55);
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 18, .96);
+    background: rgba(10, 10, 18, 0.96);
 
-    border-color: rgba(139, 92, 246, .35);
+    border-color: rgba(139, 92, 246, 0.35);
 
     box-shadow:
-        0 0 30px rgba(139, 92, 246, .20),
-        0 20px 50px rgba(0, 0, 0, .5);
+        0 0 30px rgba(139, 92, 246, 0.20),
+        0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 /* =========================================================
@@ -147,6 +152,7 @@ body::after {
 .logo {
     display: flex;
     align-items: center;
+
     gap: 12px;
 
     text-decoration: none;
@@ -202,17 +208,19 @@ body::after {
 
     color: white;
 
-    transition: .25s;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
 .nav-links a:hover {
-    background: rgba(139, 92, 246, .10);
+    background: rgba(139, 92, 246, 0.10);
     color: var(--purple-light);
 }
 
 .nav-links a.active {
     color: var(--purple-light);
-    background: rgba(139, 92, 246, .10);
+    background: rgba(139, 92, 246, 0.10);
 }
 
 /* =========================================================
@@ -222,13 +230,14 @@ body::after {
 .nav-buttons {
     display: flex;
     align-items: center;
+
     gap: 12px;
 }
 
 .login-btn {
     padding: 11px 18px;
 
-    border: 1px solid rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
     border-radius: 12px;
 
@@ -236,12 +245,14 @@ body::after {
 
     text-decoration: none;
 
-    transition: .25s;
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
 }
 
 .login-btn:hover {
     border-color: var(--purple);
-    background: rgba(139, 92, 246, .08);
+    background: rgba(139, 92, 246, 0.08);
 }
 
 .start-btn {
@@ -262,14 +273,16 @@ body::after {
 
     font-weight: 700;
 
-    transition: .25s;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .start-btn:hover {
     transform: translateY(-2px);
 
     box-shadow:
-        0 10px 25px rgba(139, 92, 246, .35);
+        0 10px 25px rgba(139, 92, 246, 0.35);
 }
 
 /* =========================================================
@@ -283,12 +296,14 @@ body::after {
 .dropdown > a {
     display: flex;
     align-items: center;
+
     gap: 8px;
 }
 
 .dropdown .arrow {
     font-size: 12px;
-    transition: .3s;
+
+    transition: transform 0.3s ease;
 }
 
 .dropdown:hover .arrow {
@@ -302,28 +317,28 @@ body::after {
     left: 0;
 
     display: none;
-
     flex-direction: column;
 
     width: 240px;
 
     padding: 10px;
 
-    background: rgba(10, 10, 18, .98);
+    background: rgba(10, 10, 18, 0.98);
 
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
-    border: 1px solid rgba(139, 92, 246, .25);
+    border: 1px solid rgba(139, 92, 246, 0.25);
 
     border-radius: 18px;
 
     box-shadow:
-        0 18px 45px rgba(0, 0, 0, .45),
-        0 0 25px rgba(139, 92, 246, .12);
+        0 18px 45px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(139, 92, 246, 0.12);
 
     z-index: 99999;
 
-    animation: dropdown .25s ease;
+    animation: dropdown 0.25s ease;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -350,11 +365,14 @@ body::after {
 
     font-weight: 500;
 
-    transition: .25s;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding-left 0.25s ease;
 }
 
 .dropdown-menu a:hover {
-    background: rgba(139, 92, 246, .10);
+    background: rgba(139, 92, 246, 0.10);
 
     color: var(--purple-light);
 
@@ -389,15 +407,15 @@ body::after {
 
     border-radius: 14px;
 
-    background: rgba(139, 92, 246, .08);
+    background: rgba(139, 92, 246, 0.08);
 
     cursor: pointer;
 
-    transition: .25s;
+    transition: background 0.25s ease;
 }
 
 .user-profile:hover {
-    background: rgba(139, 92, 246, .16);
+    background: rgba(139, 92, 246, 0.16);
 }
 
 .user-profile img {
@@ -406,7 +424,9 @@ body::after {
 
     border-radius: 50%;
 
-    border: 2px solid #8b5cf6;
+    border: 2px solid var(--purple);
+
+    object-fit: cover;
 }
 
 .user-profile span {
@@ -428,18 +448,19 @@ body::after {
     display: none;
     flex-direction: column;
 
-    background: rgba(10, 10, 18, .96);
+    background: rgba(10, 10, 18, 0.96);
 
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
-    border: 1px solid rgba(139, 92, 246, .22);
+    border: 1px solid rgba(139, 92, 246, 0.22);
 
     border-radius: 18px;
 
     padding: 12px;
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, .5);
+        0 15px 40px rgba(0, 0, 0, 0.5);
 
     z-index: 99999;
 }
@@ -462,11 +483,13 @@ body::after {
 
     text-decoration: none;
 
-    transition: .25s;
+    transition:
+        background 0.25s ease,
+        padding-left 0.25s ease;
 }
 
 .profile-dropdown a:hover {
-    background: rgba(139, 92, 246, .12);
+    background: rgba(139, 92, 246, 0.12);
 
     padding-left: 18px;
 }
@@ -478,7 +501,7 @@ body::after {
 
     height: 1px;
 
-    background: rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .logout {
@@ -493,16 +516,16 @@ body::after {
     min-height: 100vh;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
 
-    padding: 170px 20px 80px;
+    padding:
+        170px 20px
+        80px;
 }
 
 .status {
@@ -516,9 +539,11 @@ body::after {
 
     margin-bottom: 35px;
 
-    background: rgba(15, 15, 20, .82);
+    background: rgba(15, 15, 20, 0.82);
 
-    border: 1px solid rgba(34, 197, 94, .35);
+    border:
+        1px solid
+        rgba(34, 197, 94, 0.35);
 
     border-radius: 999px;
 
@@ -554,6 +579,8 @@ body::after {
         );
 
     -webkit-background-clip: text;
+    background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
@@ -601,14 +628,16 @@ body::after {
 
     font-weight: 700;
 
-    transition: .3s;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .btn:hover {
     transform: translateY(-3px);
 
     box-shadow:
-        0 12px 30px rgba(139, 92, 246, .35);
+        0 12px 30px rgba(139, 92, 246, 0.35);
 }
 
 .btn-outline {
@@ -616,7 +645,9 @@ body::after {
 
     border-radius: 14px;
 
-    border: 1px solid rgba(139, 92, 246, .55);
+    border:
+        1px solid
+        rgba(139, 92, 246, 0.55);
 
     color: white;
 
@@ -624,11 +655,17 @@ body::after {
 
     font-weight: 600;
 
-    transition: .3s;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .btn-outline:hover {
-    background: rgba(139, 92, 246, .10);
+    background:
+        rgba(139, 92, 246, 0.10);
+
+    border-color:
+        rgba(192, 132, 252, 0.8);
 }
 
 /* =========================================================
@@ -711,25 +748,31 @@ body::after {
     background: var(--card-bg);
 
     backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
     padding: 32px;
 
     border-radius: 20px;
 
-    border: 1px solid rgba(255, 255, 255, .08);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-    transition: .35s;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .card:hover {
     transform: translateY(-8px);
 
     border-color:
-        rgba(139, 92, 246, .35);
+        rgba(139, 92, 246, 0.35);
 
     box-shadow:
-        0 20px 45px rgba(0, 0, 0, .40),
-        0 0 30px rgba(139, 92, 246, .12);
+        0 20px 45px rgba(0, 0, 0, 0.40),
+        0 0 30px rgba(139, 92, 246, 0.12);
 }
 
 .card h3 {
@@ -769,10 +812,12 @@ body::after {
 
     border-radius: 20px;
 
-    border: 1px solid rgba(255, 255, 255, .08);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
     box-shadow:
-        0 20px 45px rgba(0, 0, 0, .35);
+        0 20px 45px rgba(0, 0, 0, 0.35);
 
     overflow-x: auto;
 }
@@ -797,7 +842,8 @@ footer {
     text-align: center;
 
     border-top:
-        1px solid rgba(255, 255, 255, .08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
     color: #9ca3af;
 }
@@ -833,18 +879,19 @@ footer {
 
     border-radius: 50%;
 
-    background: #8b5cf6;
+    background: var(--purple);
 
     pointer-events: none;
 
     z-index: 99999;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     box-shadow:
-        0 0 8px rgba(139, 92, 246, .9),
-        0 0 18px rgba(139, 92, 246, .7),
-        0 0 30px rgba(139, 92, 246, .45);
+        0 0 8px rgba(139, 92, 246, 0.9),
+        0 0 18px rgba(139, 92, 246, 0.7),
+        0 0 30px rgba(139, 92, 246, 0.45);
 }
 
 /* =========================================================
@@ -860,13 +907,13 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #8b5cf6;
+    background: var(--purple);
 
     border-radius: 999px;
 }
 
 ::selection {
-    background: #8b5cf6;
+    background: var(--purple);
     color: white;
 }
 
@@ -876,28 +923,33 @@ img {
 }
 
 /* =========================================================
-   =========================================================
    COMBUSTION SYSTEM
-   =========================================================
    ========================================================= */
 
 /*
    IMPORTANT:
 
-   Combustion-BG.png is NOT a floating image.
+   Combustion-BG.png is the SINGLE Combustion background.
 
-   The HTML image:
+   HTML should contain:
 
-   <img
-      src="assets/Combustion/Combustion-BG.png"
-      class="combustion-bg"
-   >
+   <div class="combustion-page">
 
-   becomes a FULL PAGE BACKGROUND LAYER.
+       <img
+           src="assets/Combustion/Combustion-BG.png"
+           class="combustion-bg"
+           alt=""
+       >
 
-   It lives inside .combustion-page.
+       <div class="combustion-content-layer">
+           ...
+       </div>
 
-   Therefore it scrolls WITH the Combustion content.
+   </div>
+
+   The image is ABSOLUTE, not FIXED.
+
+   Therefore it scrolls together with the page.
 */
 
 /* =========================================================
@@ -913,24 +965,17 @@ img {
 
     overflow: hidden;
 
-    background: #050505;
+    background: var(--combustion-bg);
 
     isolation: isolate;
 }
 
 /* =========================================================
-   COMBUSTION BACKGROUND IMAGE
+   COMBUSTION BACKGROUND
    ========================================================= */
 
 .combustion-bg {
     position: absolute;
-
-    /*
-       THIS IS THE IMPORTANT PART.
-
-       The image begins at the top of the Combustion page
-       and extends across its COMPLETE height.
-    */
 
     top: 0;
     left: 0;
@@ -938,57 +983,25 @@ img {
     width: 100%;
     height: 100%;
 
-    /*
-       Prevent the image from becoming its own
-       visible content object.
-    */
-
     display: block;
-
-    /*
-       This keeps the image focused on the viewport.
-    */
 
     object-fit: cover;
 
-    /*
-       CENTER keeps the important artwork in the middle.
-    */
-
     object-position: center center;
-
-    /*
-       Make it a visual layer.
-    */
 
     pointer-events: none;
 
     user-select: none;
 
-    /*
-       Behind every Combustion element.
-    */
-
     z-index: -3;
 
-    /*
-       Slightly enlarge it to prevent edge gaps.
-    */
-
     transform: scale(1.015);
-
-    /*
-       DO NOT use fixed positioning.
-
-       Absolute positioning means the image belongs
-       to .combustion-page and therefore scrolls with it.
-    */
 
     will-change: transform;
 }
 
 /* =========================================================
-   COMBUSTION BACKGROUND DARK OVERLAY
+   COMBUSTION DARK OVERLAY
    ========================================================= */
 
 .combustion-page::before {
@@ -1005,15 +1018,15 @@ img {
     background:
         linear-gradient(
             180deg,
-            rgba(0, 0, 0, .48) 0%,
-            rgba(0, 0, 0, .16) 25%,
-            rgba(0, 0, 0, .20) 55%,
-            rgba(0, 0, 0, .60) 100%
+            rgba(0, 0, 0, 0.48) 0%,
+            rgba(0, 0, 0, 0.16) 25%,
+            rgba(0, 0, 0, 0.20) 55%,
+            rgba(0, 0, 0, 0.60) 100%
         );
 }
 
 /* =========================================================
-   COMBUSTION COLOR ATMOSPHERE
+   COMBUSTION ATMOSPHERE
    ========================================================= */
 
 .combustion-page::after {
@@ -1030,18 +1043,20 @@ img {
     background:
         radial-gradient(
             circle at 50% 20%,
-            rgba(255, 90, 0, .12),
+            rgba(255, 90, 0, 0.12),
             transparent 32%
         ),
+
         radial-gradient(
             circle at 50% 65%,
-            rgba(255, 50, 0, .16),
+            rgba(255, 50, 0, 0.16),
             transparent 38%
         ),
+
         linear-gradient(
             180deg,
             transparent,
-            rgba(20, 3, 0, .35)
+            rgba(20, 3, 0, 0.35)
         );
 }
 
@@ -1110,23 +1125,20 @@ img {
 
     gap: 10px;
 
-    padding:
-        10px 20px;
+    padding: 10px 20px;
 
     border-radius: 999px;
 
     border:
         1px solid
-        rgba(139, 92, 246, .50);
+        rgba(139, 92, 246, 0.50);
 
     background:
-        rgba(20, 10, 30, .45);
+        rgba(20, 10, 30, 0.45);
 
-    backdrop-filter:
-        blur(12px);
+    backdrop-filter: blur(12px);
 
-    -webkit-backdrop-filter:
-        blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     color: #d8b4fe;
 
@@ -1138,7 +1150,7 @@ img {
 
     box-shadow:
         0 0 30px
-        rgba(139, 92, 246, .08);
+        rgba(139, 92, 246, 0.08);
 }
 
 .limitless-badge i {
@@ -1159,7 +1171,7 @@ img {
             115px
         );
 
-    line-height: .88;
+    line-height: 0.88;
 
     letter-spacing: -5px;
 
@@ -1175,13 +1187,14 @@ img {
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
     text-shadow:
         0 0 60px
-        rgba(139, 92, 246, .12);
+        rgba(139, 92, 246, 0.12);
 }
 
 /* =========================================================
@@ -1214,7 +1227,7 @@ img {
         28px auto 0;
 
     color:
-        rgba(235, 230, 245, .78);
+        rgba(235, 230, 245, 0.78);
 
     font-size: 17px;
 
@@ -1236,17 +1249,16 @@ img {
 
     margin-top: 35px;
 
-    padding:
-        15px 30px;
+    padding: 15px 30px;
 
     border-radius: 13px;
 
     border:
         1px solid
-        rgba(139, 92, 246, .45);
+        rgba(139, 92, 246, 0.45);
 
     background:
-        rgba(139, 92, 246, .10);
+        rgba(139, 92, 246, 0.10);
 
     color: white;
 
@@ -1257,28 +1269,28 @@ img {
     backdrop-filter: blur(10px);
 
     transition:
-        transform .3s ease,
-        background .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .explore-btn:hover {
     transform: translateY(-4px);
 
     background:
-        rgba(139, 92, 246, .20);
+        rgba(139, 92, 246, 0.20);
 
     border-color:
-        rgba(192, 132, 252, .80);
+        rgba(192, 132, 252, 0.80);
 
     box-shadow:
         0 15px 40px
-        rgba(139, 92, 246, .20);
+        rgba(139, 92, 246, 0.20);
 }
 
 /* =========================================================
-   TRANSITION SECTION
+   COMBUSTION TRANSITION
    ========================================================= */
 
 .combustion-transition {
@@ -1303,12 +1315,10 @@ img {
 }
 
 /*
-   No new background image here.
-
-   This is intentional.
+   No second background image here.
 
    The same Combustion-BG.png continues behind
-   this section.
+   the entire Combustion page.
 */
 
 /* =========================================================
@@ -1321,9 +1331,11 @@ img {
     position: absolute;
 
     width: 900px;
+
     height: 500px;
 
     left: 50%;
+
     bottom: -250px;
 
     transform:
@@ -1334,8 +1346,8 @@ img {
     background:
         radial-gradient(
             ellipse,
-            rgba(255, 80, 0, .30),
-            rgba(255, 30, 0, .10),
+            rgba(255, 80, 0, 0.30),
+            rgba(255, 30, 0, 0.10),
             transparent 70%
         );
 
@@ -1351,14 +1363,13 @@ img {
 }
 
 @keyframes combustionGlow {
-
     0%,
     100% {
         transform:
             translateX(-50%)
-            scale(.85);
+            scale(0.85);
 
-        opacity: .55;
+        opacity: 0.55;
     }
 
     50% {
@@ -1391,8 +1402,7 @@ img {
 .transition-label {
     display: inline-block;
 
-    color:
-        #ff9d42;
+    color: #ff9d42;
 
     font-size: 13px;
 
@@ -1417,7 +1427,7 @@ img {
             110px
         );
 
-    line-height: .88;
+    line-height: 0.88;
 
     letter-spacing: -5px;
 
@@ -1431,13 +1441,14 @@ img {
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
     text-shadow:
         0 0 60px
-        rgba(255, 80, 0, .18);
+        rgba(255, 80, 0, 0.18);
 }
 
 /* =========================================================
@@ -1448,7 +1459,7 @@ img {
     margin-top: 35px;
 
     color:
-        rgba(255, 220, 195, .85);
+        rgba(255, 220, 195, 0.85);
 
     font-size: 18px;
 
@@ -1480,14 +1491,6 @@ img {
     overflow: hidden;
 }
 
-/*
-   Again:
-
-   NO SECOND BACKGROUND.
-
-   The original BG continues behind this section.
-*/
-
 /* =========================================================
    COMBUSTION SECTION GLOW
    ========================================================= */
@@ -1498,9 +1501,11 @@ img {
     position: absolute;
 
     width: 900px;
+
     height: 900px;
 
     left: 50%;
+
     top: 50%;
 
     transform:
@@ -1511,8 +1516,8 @@ img {
     background:
         radial-gradient(
             circle,
-            rgba(255, 70, 0, .22),
-            rgba(255, 30, 0, .08) 40%,
+            rgba(255, 70, 0, 0.22),
+            rgba(255, 30, 0, 0.08) 40%,
             transparent 70%
         );
 
@@ -1528,14 +1533,13 @@ img {
 }
 
 @keyframes combustionCore {
-
     0%,
     100% {
         transform:
             translate(-50%, -50%)
-            scale(.85);
+            scale(0.85);
 
-        opacity: .55;
+        opacity: 0.55;
     }
 
     50% {
@@ -1593,7 +1597,7 @@ img {
     filter:
         drop-shadow(
             0 0 35px
-            rgba(255, 80, 0, .60)
+            rgba(255, 80, 0, 0.60)
         );
 
     animation:
@@ -1604,15 +1608,14 @@ img {
 }
 
 @keyframes combustionLogoPulse {
-
     0%,
     100% {
-        transform: scale(.98);
+        transform: scale(0.98);
 
         filter:
             drop-shadow(
                 0 0 28px
-                rgba(255, 80, 0, .50)
+                rgba(255, 80, 0, 0.50)
             );
     }
 
@@ -1622,7 +1625,7 @@ img {
         filter:
             drop-shadow(
                 0 0 50px
-                rgba(255, 80, 0, .80)
+                rgba(255, 80, 0, 0.80)
             );
     }
 }
@@ -1647,13 +1650,12 @@ img {
 
     border:
         1px solid
-        rgba(255, 100, 0, .60);
+        rgba(255, 100, 0, 0.60);
 
     background:
-        rgba(255, 70, 0, .09);
+        rgba(255, 70, 0, 0.09);
 
-    color:
-        #ffad58;
+    color: #ffad58;
 
     font-size: 13px;
 
@@ -1661,17 +1663,15 @@ img {
 
     letter-spacing: 1px;
 
-    backdrop-filter:
-        blur(10px);
+    backdrop-filter: blur(10px);
 
     box-shadow:
         0 0 30px
-        rgba(255, 60, 0, .08);
+        rgba(255, 60, 0, 0.08);
 }
 
 .brand-badge i {
-    color:
-        #ff6a00;
+    color: #ff6a00;
 }
 
 /* =========================================================
@@ -1688,7 +1688,7 @@ img {
             130px
         );
 
-    line-height: .82;
+    line-height: 0.82;
 
     letter-spacing: -6px;
 
@@ -1705,13 +1705,14 @@ img {
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
     text-shadow:
         0 0 55px
-        rgba(255, 60, 0, .25);
+        rgba(255, 60, 0, 0.25);
 }
 
 /* =========================================================
@@ -1723,23 +1724,21 @@ img {
 
     margin-top: 25px;
 
-    font-size: .27em;
+    font-size: 0.27em;
 
     line-height: 1;
 
     letter-spacing: 12px;
 
-    color:
-        #ff8a00;
+    color: #ff8a00;
 
     background: none;
 
-    -webkit-text-fill-color:
-        #ff8a00;
+    -webkit-text-fill-color: #ff8a00;
 
     text-shadow:
         0 0 25px
-        rgba(255, 80, 0, .35);
+        rgba(255, 80, 0, 0.35);
 }
 
 /* =========================================================
@@ -1753,7 +1752,7 @@ img {
         38px auto 0;
 
     color:
-        rgba(255, 221, 204, .88);
+        rgba(255, 221, 204, 0.88);
 
     font-size: 19px;
 
@@ -1788,7 +1787,7 @@ img {
 
     font-weight: 800;
 
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
 
     color: white;
 
@@ -1801,18 +1800,18 @@ img {
 
     border:
         1px solid
-        rgba(255, 180, 100, .20);
+        rgba(255, 180, 100, 0.20);
 
     box-shadow:
         0 0 30px
-        rgba(255, 70, 0, .35),
+        rgba(255, 70, 0, 0.35),
         0 15px 40px
-        rgba(255, 40, 0, .15);
+        rgba(255, 40, 0, 0.15);
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        filter .3s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
 }
 
 .try-us:hover {
@@ -1824,9 +1823,9 @@ img {
 
     box-shadow:
         0 0 60px
-        rgba(255, 70, 0, .70),
+        rgba(255, 70, 0, 0.70),
         0 20px 50px
-        rgba(255, 40, 0, .25);
+        rgba(255, 40, 0, 0.25);
 }
 
 .try-us i:first-child {
@@ -1844,27 +1843,25 @@ img {
 .combustion-footer {
     position: relative;
 
-    background:
-        #050505;
+    background: #050505;
 
     border-top:
         1px solid
-        rgba(255, 70, 0, .25);
+        rgba(255, 70, 0, 0.25);
 
     z-index: 5;
 }
 
 .combustion-footer .footer-content h3 {
-    color:
-        #ff6a00;
+    color: #ff6a00;
 
     text-shadow:
         0 0 20px
-        rgba(255, 70, 0, .30);
+        rgba(255, 70, 0, 0.30);
 }
 
 /* =========================================================
-   COMBUSTION SCROLL FADE
+   COMBUSTION ISOLATION
    ========================================================= */
 
 .combustion-page .combustion-transition,
@@ -1873,10 +1870,189 @@ img {
 }
 
 /* =========================================================
-   MOBILE COMBUSTION
+   MOBILE NAVBAR
+   ========================================================= */
+
+.mobile-actions {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu-btn {
+    background: none;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 24px;
+}
+
+.mobile-vps {
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+/* =========================================================
+   GLOBAL MOBILE
    ========================================================= */
 
 @media (max-width: 900px) {
+
+    .navbar {
+        height: 72px;
+
+        padding:
+            0 18px;
+    }
+
+    .nav-links,
+    .nav-buttons {
+        display: none;
+    }
+
+    .mobile-actions {
+        display: flex;
+
+        align-items: center;
+
+        gap: 18px;
+
+        margin-left: auto;
+    }
+
+    .mobile-menu {
+        position: absolute;
+
+        top: 88px;
+
+        left: 15px;
+
+        right: 15px;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 18px;
+
+        background:
+            rgba(10, 10, 18, 0.98);
+
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+
+        border:
+            1px solid
+            rgba(139, 92, 246, 0.22);
+
+        border-radius: 18px;
+
+        box-shadow:
+            0 20px 45px
+            rgba(0, 0, 0, 0.45);
+
+        z-index: 99999;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 14px;
+
+        text-decoration: none;
+
+        color: white;
+
+        border-radius: 12px;
+
+        transition:
+            background 0.25s ease;
+    }
+
+    .mobile-menu a:hover {
+        background:
+            rgba(139, 92, 246, 0.12);
+    }
+
+    .hero {
+        padding-top: 140px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .btn,
+    .btn-outline {
+        width: 260px;
+
+        text-align: center;
+    }
+
+    .stats {
+        gap: 25px;
+    }
+
+    .section {
+        padding:
+            80px 20px;
+    }
+
+    .section h2 {
+        font-size: 36px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .trail-dot {
+        display: none;
+    }
+
+    /* =========================
+       COMBUSTION MOBILE
+       ========================= */
 
     .combustion-page {
         min-height: 320vh;
@@ -1887,10 +2063,6 @@ img {
     }
 
     .combustion-bg {
-        /*
-           Slightly wider on mobile so object-fit
-           does not expose edges.
-        */
         width: 110%;
 
         left: -5%;
@@ -1915,8 +2087,7 @@ img {
                 78px
             );
 
-        letter-spacing:
-            -3px;
+        letter-spacing: -3px;
     }
 
     .hero-description {
@@ -1995,6 +2166,20 @@ img {
 
 @media (max-width: 500px) {
 
+    .navbar {
+        width: calc(100% - 24px);
+
+        top: 12px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .logo i {
+        font-size: 27px;
+    }
+
     .combustion-bg {
         width: 125%;
 
@@ -2023,6 +2208,7 @@ img {
 
     .combustion-logo {
         width: 140px;
+
         height: 140px;
     }
 
@@ -2040,7 +2226,7 @@ img {
     }
 
     .combustion-title span {
-        font-size: .25em;
+        font-size: 0.25em;
 
         letter-spacing: 5px;
     }
@@ -2055,183 +2241,7 @@ img {
 }
 
 /* =========================================================
-   MOBILE NAVBAR
-   ========================================================= */
-
-.mobile-actions {
-    display: none;
-}
-
-.mobile-menu {
-    display: none;
-}
-
-.mobile-menu.active {
-    display: flex;
-}
-
-.mobile-menu-btn {
-    background: none;
-
-    border: none;
-
-    outline: none;
-
-    cursor: pointer;
-
-    color: white;
-
-    font-size: 24px;
-}
-
-.mobile-vps {
-    text-decoration: none;
-
-    color: white;
-
-    font-weight: 700;
-}
-
-/* =========================================================
-   MOBILE GLOBAL
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    .navbar {
-        height: 72px;
-
-        padding: 0 18px;
-    }
-
-    .nav-links,
-    .nav-buttons {
-        display: none;
-    }
-
-    .mobile-actions {
-        display: flex;
-
-        align-items: center;
-
-        gap: 18px;
-
-        margin-left: auto;
-    }
-
-    .mobile-menu {
-        position: absolute;
-
-        top: 88px;
-
-        left: 15px;
-        right: 15px;
-
-        display: none;
-
-        flex-direction: column;
-
-        gap: 10px;
-
-        padding: 18px;
-
-        background:
-            rgba(10, 10, 18, .98);
-
-        backdrop-filter:
-            blur(18px);
-
-        border:
-            1px solid
-            rgba(139, 92, 246, .22);
-
-        border-radius: 18px;
-
-        box-shadow:
-            0 20px 45px
-            rgba(0, 0, 0, .45);
-
-        z-index: 99999;
-    }
-
-    .mobile-menu.active {
-        display: flex;
-    }
-
-    .mobile-menu a {
-        display: flex;
-
-        align-items: center;
-
-        gap: 12px;
-
-        padding: 14px;
-
-        text-decoration: none;
-
-        color: white;
-
-        border-radius: 12px;
-
-        transition: .25s;
-    }
-
-    .mobile-menu a:hover {
-        background:
-            rgba(139, 92, 246, .12);
-    }
-
-    .hero {
-        padding-top: 140px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-
-        letter-spacing: -1px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .buttons {
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .btn,
-    .btn-outline {
-        width: 260px;
-
-        text-align: center;
-    }
-
-    .stats {
-        gap: 25px;
-    }
-
-    .section {
-        padding:
-            80px 20px;
-    }
-
-    .section h2 {
-        font-size: 36px;
-    }
-
-    .card {
-        padding: 24px;
-    }
-
-    .trail-dot {
-        display: none;
-    }
-}
-
-/* =========================================================
-   FINAL SAFETY
+   ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2241,9 +2251,37 @@ img {
     *::after {
         scroll-behavior: auto !important;
 
-        animation-duration: .01ms !important;
+        animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
 
-        transition-duration: .01ms !important;
+        transition-duration: 0.01ms !important;
     }
+}
+
+/* =========================================================
+   FINAL GLOBAL SAFETY
+   ========================================================= */
+
+a {
+    -webkit-user-drag: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline:
+        2px solid
+        var(--purple-light);
+
+    outline-offset: 3px;
 }
