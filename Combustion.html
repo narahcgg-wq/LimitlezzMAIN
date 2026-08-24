@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combustion Hosting | Limitlezz</title>
+<title>Combustion | LIMITLEZZ</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,326 +21,726 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <style>
 
 /* =========================================================
-   COMBUSTION TRANSITION
+   BASE
 ========================================================= */
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-transition:
-background 1.2s ease,
-color 1.2s ease;
+    overflow-x:hidden;
+    background:#050505;
+    transition:background 1s ease;
 }
 
-/* Fire section */
+/* =========================================================
+   BLEND VARIABLES
+========================================================= */
 
-.combustion-section{
-min-height:100vh;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-padding:120px 20px;
+:root{
+    --blend:0;
+    --purple:#8b5cf6;
+    --purple-light:#c084fc;
 
-background:
-radial-gradient(circle at 50% 80%,
-rgba(255,70,0,.35),
-transparent 45%),
-linear-gradient(
-180deg,
-#050505 0%,
-#120500 45%,
-#220800 100%
-);
-
-color:white;
+    --fire:#ff4d00;
+    --orange:#ff8a00;
+    --yellow:#ffc247;
 }
 
-/* Fire glow */
+/* =========================================================
+   FIRE PARTICLES
+========================================================= */
 
-.fire-glow{
-position:absolute;
-width:700px;
-height:700px;
+.fire-particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+    overflow:hidden;
+    opacity:var(--blend);
+}
 
-background:
-radial-gradient(circle,
-rgba(255,90,0,.28),
-rgba(255,30,0,.12),
-transparent 70%);
+.particle{
+    position:absolute;
+    bottom:-30px;
 
-filter:blur(40px);
+    width:5px;
+    height:5px;
 
-animation:firePulse 4s ease-in-out infinite;
+    border-radius:50%;
+
+    background:#ff8a00;
+
+    box-shadow:
+        0 0 10px #ff4d00,
+        0 0 20px #ff8a00;
+
+    animation:particleRise linear infinite;
+}
+
+.particle:nth-child(1){
+    left:8%;
+    animation-duration:7s;
+}
+
+.particle:nth-child(2){
+    left:18%;
+    animation-duration:5s;
+    animation-delay:2s;
+}
+
+.particle:nth-child(3){
+    left:32%;
+    animation-duration:8s;
+    animation-delay:1s;
+}
+
+.particle:nth-child(4){
+    left:48%;
+    animation-duration:6s;
+}
+
+.particle:nth-child(5){
+    left:63%;
+    animation-duration:9s;
+    animation-delay:3s;
+}
+
+.particle:nth-child(6){
+    left:77%;
+    animation-duration:6s;
+    animation-delay:1s;
+}
+
+.particle:nth-child(7){
+    left:91%;
+    animation-duration:8s;
+}
+
+@keyframes particleRise{
+
+    0%{
+        transform:
+        translateY(0)
+        translateX(0)
+        scale(.5);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(-110vh)
+        translateX(100px)
+        scale(1.3);
+
+        opacity:0;
+    }
+
+}
+
+/* =========================================================
+   BLEND HERO
+========================================================= */
+
+.blend-hero{
+    position:relative;
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(139,92,246,.20),
+            transparent 45%
+        );
+}
+
+/* Orange slowly appears */
+
+.blend-hero::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255,70,0,.35),
+            transparent 55%
+        );
+
+    opacity:var(--blend);
+
+    pointer-events:none;
+}
+
+.blend-content{
+    position:relative;
+    z-index:3;
+
+    max-width:900px;
+}
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.blend-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+    gap:10px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    border:1px solid
+        rgba(139,92,246,.55);
+
+    background:
+        rgba(139,92,246,.08);
+
+    color:#c084fc;
+
+    transition:
+        color .8s ease,
+        border-color .8s ease,
+        background .8s ease;
+}
+
+.blend-badge i{
+    transition:color .8s ease;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.blend-title{
+
+    margin:30px 0 20px;
+
+    font-size:
+        clamp(55px,9vw,110px);
+
+    line-height:.9;
+
+    font-weight:700;
+
+    letter-spacing:-4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #c084fc 45%,
+            #ffffff 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    transition:
+        background 1s ease;
+}
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.blend-subtitle{
+
+    font-size:clamp(20px,3vw,30px);
+
+    color:#c084fc;
+
+    transition:color 1s ease;
+}
+
+.blend-description{
+
+    max-width:680px;
+
+    margin:30px auto;
+
+    color:#a9a9a9;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.blend-services{
+
+    position:relative;
+
+    padding:
+        120px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050505,
+            #09060d
+        );
+
+    transition:
+        background 1.2s ease;
+}
+
+.blend-services::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:250px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,70,0,.20),
+            transparent
+        );
+
+    opacity:var(--blend);
+
+    pointer-events:none;
+}
+
+.blend-card{
+
+    position:relative;
+
+    border:
+        1px solid
+        rgba(139,92,246,.25);
+
+    background:
+        rgba(15,15,15,.75);
+
+    transition:
+        border-color 1s ease,
+        box-shadow 1s ease,
+        transform .3s ease;
+}
+
+.blend-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(255,90,0,.65);
+
+    box-shadow:
+        0 20px 60px
+        rgba(255,60,0,.12);
+}
+
+.blend-card h3 i{
+
+    color:#8b5cf6;
+
+    transition:color 1s ease;
+}
+
+/* =========================================================
+   BIG TRANSITION
+========================================================= */
+
+.transition-zone{
+
+    position:relative;
+
+    min-height:65vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255,50,0,.30),
+            transparent 50%
+        ),
+
+        linear-gradient(
+            180deg,
+            #09060d,
+            #170800,
+            #250800
+        );
+}
+
+.transition-zone::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-30%;
+
+    background:
+
+        radial-gradient(
+            ellipse at center bottom,
+            rgba(255,120,0,.35),
+            transparent 50%
+        );
+
+    filter:blur(50px);
+
+    animation:firePulse 4s infinite ease-in-out;
 }
 
 @keyframes firePulse{
 
-0%,100%{
-transform:scale(.9);
-opacity:.7;
-}
+    0%,100%{
+        transform:scale(.9);
+        opacity:.6;
+    }
 
-50%{
-transform:scale(1.1);
-opacity:1;
-}
-
-}
-
-/* Floating flames */
-
-.flame{
-position:absolute;
-bottom:-80px;
-
-width:80px;
-height:120px;
-
-background:linear-gradient(
-180deg,
-#fff36a,
-#ff9d00,
-#ff3b00
-);
-
-border-radius:
-50% 50% 45% 45% /
-60% 60% 40% 40%;
-
-filter:blur(1px);
-
-opacity:.18;
-
-animation:rise 7s linear infinite;
-}
-
-.flame:nth-child(2){
-left:15%;
-animation-delay:1s;
-transform:scale(.7);
-}
-
-.flame:nth-child(3){
-left:35%;
-animation-delay:3s;
-transform:scale(1.2);
-}
-
-.flame:nth-child(4){
-left:65%;
-animation-delay:2s;
-transform:scale(.8);
-}
-
-.flame:nth-child(5){
-left:82%;
-animation-delay:4s;
-transform:scale(1.1);
-}
-
-@keyframes rise{
-
-0%{
-bottom:-120px;
-opacity:0;
-transform:translateX(0) scale(.7);
-}
-
-20%{
-opacity:.2;
-}
-
-100%{
-bottom:110%;
-opacity:0;
-transform:translateX(80px) scale(1.3);
-}
+    50%{
+        transform:scale(1.1);
+        opacity:1;
+    }
 
 }
 
-/* Content */
+.transition-text{
+
+    position:relative;
+
+    z-index:3;
+
+    max-width:800px;
+}
+
+.transition-small{
+
+    color:#ff9b35;
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:13px;
+}
+
+.transition-text h2{
+
+    margin:20px 0;
+
+    font-size:
+        clamp(45px,8vw,90px);
+
+    line-height:.9;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff6cc,
+            #ffb300,
+            #ff3d00
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.transition-text p{
+
+    color:#ffd8bf;
+
+    font-size:18px;
+
+    line-height:1.7;
+}
+
+/* =========================================================
+   COMBUSTION
+========================================================= */
+
+.combustion{
+
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 75%,
+            rgba(255,75,0,.35),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #250800,
+            #120400,
+            #050505
+        );
+}
 
 .combustion-content{
-position:relative;
-z-index:5;
 
-max-width:850px;
-text-align:center;
+    position:relative;
+
+    z-index:5;
+
+    max-width:900px;
 }
 
-.combustion-badge{
-
-display:inline-flex;
-align-items:center;
-gap:10px;
-
-padding:8px 18px;
-
-border:1px solid rgba(255,100,0,.55);
-
-border-radius:999px;
-
-background:rgba(255,60,0,.08);
-
-color:#ff9d32;
-
-font-size:14px;
-
-margin-bottom:25px;
-
-box-shadow:
-0 0 30px rgba(255,60,0,.12);
-}
-
-.combustion-content h2{
-
-font-size:
-clamp(55px,9vw,110px);
-
-line-height:.9;
-
-margin:0;
-
-font-weight:700;
-
-background:
-linear-gradient(
-180deg,
-#fff7c7,
-#ffb300 45%,
-#ff3b00 85%
-);
-
--webkit-background-clip:text;
-background-clip:text;
-
-color:transparent;
-
-text-shadow:
-0 0 45px rgba(255,70,0,.25);
-}
-
-.combustion-content h2 span{
-display:block;
-font-size:.35em;
-letter-spacing:8px;
-margin-top:25px;
-
-background:none;
-color:#ff8a00;
--webkit-text-fill-color:#ff8a00;
-}
-
-.combustion-content p{
-
-max-width:650px;
-margin:30px auto;
-
-font-size:18px;
-line-height:1.7;
-
-color:#ffd9bd;
-}
-
-/* Combustion logo */
+/* =========================================================
+   LOGO
+========================================================= */
 
 .combustion-logo{
 
-width:180px;
-height:180px;
+    width:
+        clamp(130px,18vw,220px);
 
-object-fit:contain;
+    height:
+        clamp(130px,18vw,220px);
 
-margin-bottom:20px;
+    object-fit:contain;
 
-filter:
-drop-shadow(0 0 25px rgba(255,80,0,.55));
+    margin-bottom:25px;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(255,80,0,.65)
+        );
+}
+
+/* =========================================================
+   COMBUSTION TITLE
+========================================================= */
+
+.combustion h2{
+
+    margin:0;
+
+    font-size:
+        clamp(60px,10vw,125px);
+
+    line-height:.85;
+
+    letter-spacing:-5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff7c7,
+            #ffb300 40%,
+            #ff4b00 75%,
+            #d91e00
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 50px
+        rgba(255,60,0,.25);
+}
+
+.combustion h2 span{
+
+    display:block;
+
+    margin-top:25px;
+
+    font-size:.3em;
+
+    letter-spacing:12px;
+
+    color:#ff8a00;
 
 }
 
-/* Try button */
+/* =========================================================
+   COMBUSTION TEXT
+========================================================= */
 
-.combustion-btn{
+.combustion-description{
 
-display:inline-flex;
+    max-width:650px;
 
-align-items:center;
-justify-content:center;
-gap:12px;
+    margin:35px auto;
 
-padding:16px 42px;
+    color:#ffd8c4;
 
-border-radius:12px;
+    font-size:19px;
 
-text-decoration:none;
-
-font-weight:700;
-
-font-size:17px;
-
-color:white;
-
-background:
-linear-gradient(
-135deg,
-#ff4b00,
-#ff1e00
-);
-
-box-shadow:
-0 0 35px rgba(255,60,0,.3);
-
-transition:
-transform .3s ease,
-box-shadow .3s ease,
-filter .3s ease;
+    line-height:1.8;
 }
 
-.combustion-btn:hover{
+/* =========================================================
+   TRY US BUTTON
+========================================================= */
 
-transform:
-translateY(-4px)
-scale(1.03);
+.try-us{
 
-box-shadow:
-0 0 55px rgba(255,70,0,.65);
+    display:inline-flex;
 
-filter:brightness(1.15);
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    padding:
+        17px 45px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6a00,
+            #ff2600
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(255,70,0,.35);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
-/* Small text */
+.try-us:hover{
 
-.combustion-note{
+    transform:
+        translateY(-5px)
+        scale(1.04);
 
-margin-top:18px !important;
-
-font-size:13px !important;
-
-color:#b8795e !important;
+    box-shadow:
+        0 0 60px
+        rgba(255,70,0,.7);
 }
 
-/* Fire divider */
+/* =========================================================
+   FIRE RING
+========================================================= */
 
-.fire-divider{
+.fire-ring{
 
-height:2px;
+    position:absolute;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-#ff4b00,
-#ffb300,
-#ff4b00,
-transparent
-);
+    width:600px;
+    height:600px;
 
-box-shadow:
-0 0 20px rgba(255,60,0,.5);
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,80,0,.12);
+
+    box-shadow:
+        0 0 100px
+        rgba(255,50,0,.08);
+
+    animation:
+        ringPulse 5s infinite ease-in-out;
+}
+
+@keyframes ringPulse{
+
+    0%,100%{
+        transform:scale(.8);
+        opacity:.3;
+    }
+
+    50%{
+        transform:scale(1.1);
+        opacity:.7;
+    }
+
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.fire-footer{
+
+    border-top:
+        1px solid
+        rgba(255,70,0,.25);
+
+    background:#050505;
+
+}
+
+.fire-footer h3{
+
+    color:#ff6a00;
+
 }
 
 </style>
@@ -349,6 +750,24 @@ box-shadow:
 <body>
 
 <div class="cursor-glow"></div>
+
+
+<!-- =========================================================
+     FIRE PARTICLES
+========================================================= -->
+
+<div class="fire-particles">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
 
 <!-- =========================================================
      NAVBAR
@@ -366,6 +785,7 @@ LIMITLE<span>ZZ</span>
 
 </a>
 
+
 <ul class="nav-links">
 
 <li>
@@ -373,6 +793,7 @@ LIMITLE<span>ZZ</span>
 Home
 </a>
 </li>
+
 
 <li class="dropdown">
 
@@ -385,6 +806,7 @@ Game Hosting
 <i class="fa-solid fa-chevron-down arrow"></i>
 
 </a>
+
 
 <div class="dropdown-menu">
 
@@ -408,6 +830,7 @@ Minecraft Bedrock
 
 </li>
 
+
 <li>
 
 <a href="vps.html">
@@ -420,6 +843,7 @@ VPS Hosting
 
 </li>
 
+
 <li>
 
 <a href="customs.html">
@@ -431,6 +855,7 @@ Customs
 </a>
 
 </li>
+
 
 <li>
 
@@ -446,15 +871,21 @@ Team
 
 </ul>
 
+
 <div class="nav-buttons">
 
-<a href="#" id="discord-login" class="login-btn">
+<a
+href="#"
+id="discord-login"
+class="login-btn"
+>
 
 <i class="fa-brands fa-discord"></i>
 
 Login
 
 </a>
+
 
 <div
 id="user-profile"
@@ -471,6 +902,7 @@ alt="Avatar"
 <span id="user-name"></span>
 
 <i class="fa-solid fa-chevron-down"></i>
+
 
 <div class="profile-dropdown">
 
@@ -501,7 +933,11 @@ Settings
 
 <hr>
 
-<a href="#" id="logout-btn" class="logout">
+<a
+href="#"
+id="logout-btn"
+class="logout"
+>
 
 <i class="fa-solid fa-right-from-bracket"></i>
 
@@ -515,11 +951,15 @@ Logout
 
 </div>
 
-<!-- Mobile -->
+
+<!-- MOBILE -->
 
 <div class="mobile-actions">
 
-<a href="vps.html" class="mobile-vps">
+<a
+href="vps.html"
+class="mobile-vps"
+>
 VPS
 </a>
 
@@ -530,6 +970,7 @@ VPS
 </button>
 
 </div>
+
 
 <div class="mobile-menu">
 
@@ -571,47 +1012,52 @@ Login
 
 
 <!-- =========================================================
-     NORMAL LIMITLEZZ INTRO
+     LIMITLEZZ START
 ========================================================= -->
 
-<section class="hero">
+<section class="blend-hero">
 
-<div class="status">
+<div class="blend-content">
 
-<i class="fa-solid fa-fire"></i>
+<div class="blend-badge">
 
-Something New Is Igniting
+<i class="fa-solid fa-infinity"></i>
+
+LIMITLEZZ PRESENTS
 
 </div>
 
-<h1>
 
-Power
+<h1 class="blend-title">
 
+LIMITLESS
 <br>
-
-Beyond Limits
+PERFORMANCE
 
 </h1>
 
-<p>
 
-Limitlezz is introducing a new generation of game hosting,
-built for communities that demand performance.
+<div class="blend-subtitle">
+
+Something powerful is coming.
+
+</div>
+
+
+<p class="blend-description">
+
+We built Limitlezz to push hosting beyond its limits.
+Now we're taking that same infrastructure,
+performance and passion into something new.
 
 </p>
 
-<div class="buttons">
+<a
+href="#services"
+class="btn"
+>
 
-<a href="#combustion" class="btn">
-
-Discover Combustion
-
-</a>
-
-<a href="#services" class="btn-outline">
-
-Our Services
+Explore
 
 </a>
 
@@ -621,16 +1067,25 @@ Our Services
 
 
 <!-- =========================================================
-     SERVICES
+     HYBRID SERVICES
 ========================================================= -->
 
-<section class="section" id="services">
+<section
+class="section blend-services"
+id="services"
+>
 
-<h2>Why Game Hosting?</h2>
+<h2>
+
+Built by LIMITLEZZ
+
+</h2>
+
 
 <div class="grid">
 
-<div class="card">
+
+<div class="card blend-card">
 
 <h3>
 
@@ -642,14 +1097,35 @@ Performance
 
 <p>
 
-Powerful infrastructure designed for smooth gameplay
-and demanding Minecraft communities.
+Powerful infrastructure designed for
+high-performance Minecraft communities.
 
 </p>
 
 </div>
 
-<div class="card">
+
+<div class="card blend-card">
+
+<h3>
+
+<i class="fa-solid fa-server"></i>
+
+Infrastructure
+
+</h3>
+
+<p>
+
+Reliable servers, fast networking and
+optimized deployment.
+
+</p>
+
+</div>
+
+
+<div class="card blend-card">
 
 <h3>
 
@@ -661,27 +1137,8 @@ Protection
 
 <p>
 
-Reliable infrastructure and protection designed
-to keep your community online.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-<i class="fa-solid fa-gauge-high"></i>
-
-Speed
-
-</h3>
-
-<p>
-
-Fast deployment and high-performance networking
-for your servers.
+Protection and infrastructure built
+with reliability in mind.
 
 </p>
 
@@ -693,43 +1150,57 @@ for your servers.
 
 
 <!-- =========================================================
-     FIRE TRANSITION
+     TRANSITION
 ========================================================= -->
 
-<div class="fire-divider"></div>
+<section class="transition-zone">
 
-<section
-class="combustion-section"
-id="combustion"
->
+<div class="transition-text">
 
-<div class="fire-glow"></div>
+<div class="transition-small">
 
-<div class="flame"></div>
-<div class="flame"></div>
-<div class="flame"></div>
-<div class="flame"></div>
-<div class="flame"></div>
-
-<div class="combustion-content">
-
-<div class="combustion-badge">
-
-<i class="fa-solid fa-fire"></i>
-
-A Limitlezz Hosting Brand
+LIMITLEZZ × THE NEXT GENERATION
 
 </div>
 
 
-<!--
-IMPORTANT:
-Put your Combustion logo here.
+<h2>
 
-Example:
+WE'RE
+<br>
+IGNITING
 
-assets/details/combustion.png
--->
+</h2>
+
+
+<p>
+
+Same foundation.
+<br>
+New identity.
+<br>
+More fire.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     COMBUSTION
+========================================================= -->
+
+<section class="combustion">
+
+<div class="fire-ring"></div>
+
+
+<div class="combustion-content">
+
+
+<!-- Put your Combustion logo here -->
 
 <img
 src="assets/details/combustion.png"
@@ -737,6 +1208,20 @@ alt="Combustion Hosting"
 class="combustion-logo"
 onerror="this.style.display='none';"
 >
+
+
+<div class="blend-badge"
+style="
+border-color:rgba(255,100,0,.6);
+background:rgba(255,70,0,.08);
+color:#ff9d32;
+">
+
+<i class="fa-solid fa-fire"></i>
+
+A LIMITLEZZ BRAND
+
+</div>
 
 
 <h2>
@@ -748,21 +1233,18 @@ COMBUSTION
 </h2>
 
 
-<p>
+<p class="combustion-description">
 
-Where performance meets fire.
-
-Combustion is built for gamers,
-communities and creators who want
-powerful Minecraft hosting without
-the limits.
+Built from the infrastructure and vision of
+LIMITLEZZ — Combustion is game hosting
+fueled by performance, speed and fire.
 
 </p>
 
 
 <a
 href="https://Combustion.limitlezzhosts.qzz.io"
-class="combustion-btn"
+class="try-us"
 target="_blank"
 rel="noopener noreferrer"
 >
@@ -775,13 +1257,6 @@ TRY US
 
 </a>
 
-
-<p class="combustion-note">
-
-Powered by Limitlezz
-
-</p>
-
 </div>
 
 </section>
@@ -791,11 +1266,15 @@ Powered by Limitlezz
      FOOTER
 ========================================================= -->
 
-<footer>
+<footer class="fire-footer">
 
 <div class="footer-content">
 
-<h3>LIMITLEZZ</h3>
+<h3>
+
+LIMITLEZZ
+
+</h3>
 
 <p>
 
@@ -826,35 +1305,153 @@ Powered by caffeine and bad decisions.
 
 
 <!-- =========================================================
-     FIRE SCROLL EFFECT
+     BLEND SCROLL ENGINE
 ========================================================= -->
 
 <script>
 
-const combustion =
-document.getElementById("combustion");
+const root =
+document.documentElement;
 
-window.addEventListener("scroll", () => {
+const hero =
+document.querySelector(".blend-hero");
 
-if(!combustion) return;
+const particles =
+document.querySelector(".fire-particles");
 
-const rect =
-combustion.getBoundingClientRect();
 
-const progress =
-Math.min(
+window.addEventListener(
+"scroll",
+function(){
+
+const scroll =
+window.scrollY;
+
+const height =
+window.innerHeight;
+
+
+/*
+    Start fire blend after
+    roughly one viewport.
+*/
+
+let progress =
+(scroll - height * .25)
+/
+(height * 1.8);
+
+
+/*
+    Clamp 0 → 1
+*/
+
+progress =
 Math.max(
-1 - rect.top / window.innerHeight,
-0
-),
-1
+0,
+Math.min(
+1,
+progress
+)
 );
 
-document.documentElement.style
-.setProperty(
-"--fire-progress",
+
+root.style.setProperty(
+"--blend",
 progress
 );
+
+
+/*
+    Slowly change page background
+*/
+
+const r =
+Math.round(
+5 + 35 * progress
+);
+
+const g =
+Math.round(
+5 + 4 * progress
+);
+
+const b =
+Math.round(
+5 - 2 * progress
+);
+
+document.body.style.background =
+`rgb(${r},${g},${b})`;
+
+});
+
+
+/* =========================================================
+   MOUSE FIRE GLOW
+========================================================= */
+
+document.addEventListener(
+"mousemove",
+function(e){
+
+const progress =
+parseFloat(
+getComputedStyle(root)
+.getPropertyValue("--blend")
+);
+
+if(progress <= 0) return;
+
+let glow =
+document.querySelector(
+".mouse-fire"
+);
+
+if(!glow){
+
+glow =
+document.createElement("div");
+
+glow.className =
+"mouse-fire";
+
+glow.style.position =
+"fixed";
+
+glow.style.width =
+"220px";
+
+glow.style.height =
+"220px";
+
+glow.style.borderRadius =
+"50%";
+
+glow.style.pointerEvents =
+"none";
+
+glow.style.zIndex =
+"1";
+
+glow.style.transform =
+"translate(-50%,-50%)";
+
+glow.style.background =
+"radial-gradient(circle,rgba(255,80,0,.16),transparent 70%)";
+
+glow.style.filter =
+"blur(15px)";
+
+document.body.appendChild(glow);
+
+}
+
+glow.style.left =
+e.clientX + "px";
+
+glow.style.top =
+e.clientY + "px";
 
 });
 
