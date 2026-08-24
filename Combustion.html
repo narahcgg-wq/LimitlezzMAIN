@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =========================================================
+         DOCUMENT
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -10,14 +14,29 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Combustion | LIMITLEZZ</title>
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
+
+    <meta
+        name="description"
+        content="Combustion — A LIMITLEZZ brand."
+    >
+
+    <title>
+        Combustion | LIMITLEZZ
+    </title>
 
 
-    <!-- =====================================================
-         FONTS
-    ====================================================== -->
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -31,9 +50,9 @@
     >
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          FONT AWESOME
-    ====================================================== -->
+    ========================================================== -->
 
     <link
         rel="stylesheet"
@@ -41,9 +60,9 @@
     >
 
 
-    <!-- =====================================================
-         MAIN SITE CSS
-    ====================================================== -->
+    <!-- =========================================================
+         MAIN LIMITLEZZ STYLESHEET
+    ========================================================== -->
 
     <link
         rel="stylesheet"
@@ -51,9 +70,9 @@
     >
 
 
-    <!-- =====================================================
-         COMBUSTION CSS
-    ====================================================== -->
+    <!-- =========================================================
+         COMBUSTION STYLESHEET
+    ========================================================== -->
 
     <link
         rel="stylesheet"
@@ -66,146 +85,231 @@
 <body>
 
 
-    <!-- =====================================================
-         CURSOR
-    ====================================================== -->
+    <!-- =========================================================
+         CURSOR GLOW
+    ========================================================== -->
 
-    <div class="cursor-glow"></div>
+    <div
+        class="cursor-glow"
+        aria-hidden="true"
+    ></div>
 
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          NAVBAR
-    ====================================================== -->
+    ========================================================== -->
 
     <nav class="navbar">
 
 
-        <!-- LOGO -->
+        <!-- =====================================================
+             LIMITLEZZ LOGO
+        ====================================================== -->
 
         <a
             href="index.html"
             class="logo"
+            aria-label="LIMITLEZZ Home"
         >
 
-            <i class="fa-solid fa-infinity"></i>
+            <i
+                class="fa-solid fa-infinity"
+                aria-hidden="true"
+            ></i>
 
             <span class="logo-text">
-                LIMITLE<span>ZZ</span>
+
+                LIMITLE
+
+                <span>
+                    ZZ
+                </span>
+
             </span>
 
         </a>
 
 
-
-        <!-- =================================================
+        <!-- =====================================================
              DESKTOP NAVIGATION
-        ================================================== -->
+        ====================================================== -->
 
         <ul class="nav-links">
 
 
+            <!-- =================================================
+                 HOME
+            ================================================== -->
+
             <li>
 
-                <a href="index.html">
+                <a
+                    href="index.html"
+                >
+
                     Home
+
                 </a>
 
             </li>
 
 
+            <!-- =================================================
+                 GAME HOSTING
+            ================================================== -->
 
             <li class="dropdown">
 
-                <a href="#">
+                <a
+                    href="#"
+                    aria-haspopup="true"
+                >
 
-                    <i class="fa-solid fa-gamepad"></i>
+                    <i
+                        class="fa-solid fa-gamepad"
+                        aria-hidden="true"
+                    ></i>
 
-                    Game Hosting
+                    <span>
+                        Game Hosting
+                    </span>
 
-                    <i class="fa-solid fa-chevron-down arrow"></i>
+                    <i
+                        class="fa-solid fa-chevron-down arrow"
+                        aria-hidden="true"
+                    ></i>
 
                 </a>
 
 
-                <div class="dropdown-menu">
+                <!-- =============================================
+                     GAME HOSTING DROPDOWN
+                ============================================== -->
 
+                <div
+                    class="dropdown-menu"
+                >
 
-                    <a href="gmsdecide.html">
+                    <a
+                        href="gmsdecide.html"
+                    >
 
-                        <i class="fa-solid fa-cube"></i>
+                        <i
+                            class="fa-solid fa-cube"
+                            aria-hidden="true"
+                        ></i>
 
-                        Minecraft Java
+                        <span>
+                            Minecraft Java
+                        </span>
 
                     </a>
 
 
-                    <a href="gmsdecide.html">
+                    <a
+                        href="gmsdecide.html"
+                    >
 
-                        <i class="fa-solid fa-mobile-screen"></i>
+                        <i
+                            class="fa-solid fa-mobile-screen"
+                            aria-hidden="true"
+                        ></i>
 
-                        Minecraft Bedrock
+                        <span>
+                            Minecraft Bedrock
+                        </span>
 
                     </a>
-
 
                 </div>
 
             </li>
 
 
+            <!-- =================================================
+                 VPS HOSTING
+            ================================================== -->
 
             <li>
 
-                <a href="vps.html">
+                <a
+                    href="vps.html"
+                >
 
-                    <i class="fa-solid fa-server"></i>
+                    <i
+                        class="fa-solid fa-server"
+                        aria-hidden="true"
+                    ></i>
 
-                    VPS Hosting
+                    <span>
+                        VPS Hosting
+                    </span>
 
                 </a>
 
             </li>
 
 
+            <!-- =================================================
+                 CUSTOMS
+            ================================================== -->
 
             <li>
 
-                <a href="customs.html">
+                <a
+                    href="customs.html"
+                >
 
-                    <i class="fa-solid fa-code"></i>
+                    <i
+                        class="fa-solid fa-code"
+                        aria-hidden="true"
+                    ></i>
 
-                    Customs
+                    <span>
+                        Customs
+                    </span>
 
                 </a>
 
             </li>
 
 
+            <!-- =================================================
+                 TEAM
+            ================================================== -->
 
             <li>
 
-                <a href="team.html">
+                <a
+                    href="team.html"
+                >
 
-                    <i class="fa-solid fa-users"></i>
+                    <i
+                        class="fa-solid fa-users"
+                        aria-hidden="true"
+                    ></i>
 
-                    Team
+                    <span>
+                        Team
+                    </span>
 
                 </a>
 
             </li>
-
 
         </ul>
 
 
-
-        <!-- =================================================
-             LOGIN / PROFILE
-        ================================================== -->
+        <!-- =====================================================
+             NAV BUTTONS
+        ====================================================== -->
 
         <div class="nav-buttons">
 
+
+            <!-- =================================================
+                 DISCORD LOGIN
+            ================================================== -->
 
             <a
                 href="#"
@@ -213,13 +317,21 @@
                 class="login-btn"
             >
 
-                <i class="fa-brands fa-discord"></i>
+                <i
+                    class="fa-brands fa-discord"
+                    aria-hidden="true"
+                ></i>
 
-                Login
+                <span>
+                    Login
+                </span>
 
             </a>
 
 
+            <!-- =================================================
+                 USER PROFILE
+            ================================================== -->
 
             <div
                 id="user-profile"
@@ -228,6 +340,8 @@
             >
 
 
+                <!-- USER AVATAR -->
+
                 <img
                     id="user-avatar"
                     src=""
@@ -235,65 +349,116 @@
                 >
 
 
-                <span id="user-name"></span>
+                <!-- USER NAME -->
+
+                <span
+                    id="user-name"
+                ></span>
 
 
-                <i class="fa-solid fa-chevron-down"></i>
+                <!-- PROFILE ARROW -->
+
+                <i
+                    class="fa-solid fa-chevron-down"
+                    aria-hidden="true"
+                ></i>
 
 
+                <!-- =============================================
+                     PROFILE DROPDOWN
+                ============================================== -->
 
-                <!-- PROFILE DROPDOWN -->
+                <div
+                    class="profile-dropdown"
+                >
 
-                <div class="profile-dropdown">
 
+                    <!-- DASHBOARD -->
 
-                    <a href="dashboard.html">
+                    <a
+                        href="dashboard.html"
+                    >
 
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i
+                            class="fa-solid fa-chart-line"
+                            aria-hidden="true"
+                        ></i>
 
                         Dashboard
 
                     </a>
 
 
-                    <a href="#">
+                    <!-- MY SERVERS -->
 
-                        <i class="fa-solid fa-gamepad"></i>
+                    <a
+                        href="#"
+                    >
+
+                        <i
+                            class="fa-solid fa-gamepad"
+                            aria-hidden="true"
+                        ></i>
 
                         My Servers
 
                     </a>
 
 
-                    <a href="#">
+                    <!-- VPS -->
 
-                        <i class="fa-solid fa-server"></i>
+                    <a
+                        href="#"
+                    >
+
+                        <i
+                            class="fa-solid fa-server"
+                            aria-hidden="true"
+                        ></i>
 
                         VPS
 
                     </a>
 
 
-                    <a href="#">
+                    <!-- BILLING -->
 
-                        <i class="fa-solid fa-credit-card"></i>
+                    <a
+                        href="#"
+                    >
+
+                        <i
+                            class="fa-solid fa-credit-card"
+                            aria-hidden="true"
+                        ></i>
 
                         Billing
 
                     </a>
 
 
-                    <a href="#">
+                    <!-- SETTINGS -->
 
-                        <i class="fa-solid fa-gear"></i>
+                    <a
+                        href="#"
+                    >
+
+                        <i
+                            class="fa-solid fa-gear"
+                            aria-hidden="true"
+                        ></i>
 
                         Settings
 
                     </a>
 
 
+                    <!-- DROPDOWN DIVIDER -->
+
                     <hr>
 
+
+                    <!-- LOGOUT -->
 
                     <a
                         href="#"
@@ -301,159 +466,227 @@
                         class="logout"
                     >
 
-                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <i
+                            class="fa-solid fa-right-from-bracket"
+                            aria-hidden="true"
+                        ></i>
 
                         Logout
 
                     </a>
 
-
                 </div>
 
             </div>
 
-
         </div>
 
 
-
-        <!-- =================================================
+        <!-- =====================================================
              MOBILE ACTIONS
-        ================================================== -->
+        ====================================================== -->
 
         <div class="mobile-actions">
 
+
+            <!-- MOBILE VPS -->
 
             <a
                 href="vps.html"
                 class="mobile-vps"
             >
+
                 VPS
+
             </a>
 
 
-            <button class="mobile-menu-btn">
+            <!-- MOBILE MENU BUTTON -->
 
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                aria-label="Open navigation menu"
+            >
+
+                <i
+                    class="fa-solid fa-ellipsis-vertical"
+                    aria-hidden="true"
+                ></i>
 
             </button>
-
 
         </div>
 
 
-
-        <!-- =================================================
+        <!-- =====================================================
              MOBILE MENU
-        ================================================== -->
+        ====================================================== -->
 
-        <div class="mobile-menu">
+        <div
+            class="mobile-menu"
+        >
 
 
-            <a href="gmsdecide.html">
+            <!-- GAME HOSTING -->
 
-                <i class="fa-solid fa-gamepad"></i>
+            <a
+                href="gmsdecide.html"
+            >
+
+                <i
+                    class="fa-solid fa-gamepad"
+                    aria-hidden="true"
+                ></i>
 
                 Game Hosting
 
             </a>
 
 
-            <a href="customs.html">
+            <!-- CUSTOMS -->
 
-                <i class="fa-solid fa-code"></i>
+            <a
+                href="customs.html"
+            >
+
+                <i
+                    class="fa-solid fa-code"
+                    aria-hidden="true"
+                ></i>
 
                 Customs
 
             </a>
 
 
-            <a href="team.html">
+            <!-- TEAM -->
 
-                <i class="fa-solid fa-users"></i>
+            <a
+                href="team.html"
+            >
+
+                <i
+                    class="fa-solid fa-users"
+                    aria-hidden="true"
+                ></i>
 
                 Team
 
             </a>
 
 
-            <a href="#">
+            <!-- LOGIN -->
 
-                <i class="fa-solid fa-right-to-bracket"></i>
+            <a
+                href="#"
+            >
+
+                <i
+                    class="fa-solid fa-right-to-bracket"
+                    aria-hidden="true"
+                ></i>
 
                 Login
 
             </a>
 
-
         </div>
-
 
     </nav>
 
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          COMBUSTION PAGE
-    ====================================================== -->
 
-    <main class="combustion-page">
+         IMPORTANT:
+
+         The Combustion background is intentionally NOT placed
+         inside this document as an <img>.
+
+         combustion.css applies:
+
+         url("../assets/Combustion/Combustion-BG.png")
+
+         directly to this entire .combustion-page element.
+
+         Therefore:
+
+         HERO
+             ↓
+         TRANSITION
+             ↓
+         COMBUSTION
+
+         all belong to the SAME background.
+
+    ========================================================== -->
 
 
-        <!-- =================================================
-             CUSTOM BACKGROUND
+    <main
+        class="combustion-page"
+    >
 
-             THIS IS YOUR ACTUAL ARTWORK.
 
-             Exact location:
+        <!-- =====================================================
+             CONTENT LAYER
 
-             assets/Combustion/Combustion-BG.png
-        ================================================== -->
+             This layer contains the actual page content.
 
-        <img
-            src="assets/Combustion/Combustion-BG.png"
-            class="combustion-bg"
-            alt=""
-            aria-hidden="true"
+             It does NOT contain another background image.
+        ====================================================== -->
+
+        <div
+            class="combustion-content-layer"
         >
 
 
-
-        <!-- =================================================
-             CONTENT LAYER
-
-             Everything sits above the artwork.
-        ================================================== -->
-
-        <div class="combustion-content-layer">
-
-
-
             <!-- =================================================
-                 HERO
+                 HERO SECTION
             ================================================== -->
 
-            <section class="combustion-hero">
+            <section
+                class="combustion-hero"
+                id="home"
+            >
 
 
-                <div class="combustion-hero-content">
+                <!-- =============================================
+                     HERO CONTENT
+                ============================================== -->
+
+                <div
+                    class="combustion-hero-content"
+                >
 
 
-                    <!-- BADGE -->
+                    <!-- =========================================
+                         LIMITLEZZ PRESENTS BADGE
+                    ========================================== -->
 
-                    <div class="limitless-badge">
+                    <div
+                        class="limitless-badge"
+                    >
 
-                        <i class="fa-solid fa-infinity"></i>
+                        <i
+                            class="fa-solid fa-infinity"
+                            aria-hidden="true"
+                        ></i>
 
-                        LIMITLEZZ PRESENTS
+                        <span>
+                            LIMITLEZZ PRESENTS
+                        </span>
 
                     </div>
 
 
+                    <!-- =========================================
+                         HERO TITLE
+                    ========================================== -->
 
-                    <!-- TITLE -->
-
-                    <h1 class="hero-title">
+                    <h1
+                        class="hero-title"
+                    >
 
                         LIMITLESS
 
@@ -464,20 +697,26 @@
                     </h1>
 
 
+                    <!-- =========================================
+                         HERO SUBTITLE
+                    ========================================== -->
 
-                    <!-- SUBTITLE -->
-
-                    <p class="hero-subtitle">
+                    <p
+                        class="hero-subtitle"
+                    >
 
                         Something powerful is coming.
 
                     </p>
 
 
+                    <!-- =========================================
+                         HERO DESCRIPTION
+                    ========================================== -->
 
-                    <!-- DESCRIPTION -->
-
-                    <p class="hero-description">
+                    <p
+                        class="hero-description"
+                    >
 
                         We built Limitlezz to push hosting beyond
                         its limits. Now we're taking that same
@@ -487,47 +726,69 @@
                     </p>
 
 
-
-                    <!-- EXPLORE -->
+                    <!-- =========================================
+                         EXPLORE BUTTON
+                    ========================================== -->
 
                     <a
                         href="#combustion"
                         class="explore-btn"
                     >
 
-                        Explore
+                        <span>
+                            Explore
+                        </span>
 
-                        <i class="fa-solid fa-arrow-down"></i>
+                        <i
+                            class="fa-solid fa-arrow-down"
+                            aria-hidden="true"
+                        ></i>
 
                     </a>
 
-
                 </div>
-
 
             </section>
 
 
-
             <!-- =================================================
-                 TRANSITION
+                 TRANSITION SECTION
             ================================================== -->
 
-            <section class="combustion-transition">
+            <section
+                class="combustion-transition"
+            >
 
 
-                <div class="transition-content">
+                <!-- =============================================
+                     TRANSITION CONTENT
+                ============================================== -->
+
+                <div
+                    class="transition-content"
+                >
 
 
-                    <span class="transition-label">
+                    <!-- =========================================
+                         TRANSITION LABEL
+                    ========================================== -->
+
+                    <span
+                        class="transition-label"
+                    >
 
                         LIMITLEZZ × THE NEXT GENERATION
 
                     </span>
 
 
+                    <!-- =========================================
+                         TRANSITION TITLE
+                    ========================================== -->
 
-                    <h2 class="transition-title">
+                    <h2
+                        class="transition-title"
+                    >
 
                         WE'RE
 
@@ -538,8 +799,13 @@
                     </h2>
 
 
+                    <!-- =========================================
+                         TRANSITION DESCRIPTION
+                    ========================================== -->
 
-                    <p class="transition-description">
+                    <p
+                        class="transition-description"
+                    >
 
                         Same foundation.
 
@@ -553,16 +819,13 @@
 
                     </p>
 
-
                 </div>
-
 
             </section>
 
 
-
             <!-- =================================================
-                 COMBUSTION SECTION
+                 COMBUSTION BRAND SECTION
             ================================================== -->
 
             <section
@@ -571,10 +834,18 @@
             >
 
 
-                <div class="combustion-content">
+                <!-- =============================================
+                     COMBUSTION CONTENT
+                ============================================== -->
+
+                <div
+                    class="combustion-content"
+                >
 
 
-                    <!-- COMBUSTION LOGO -->
+                    <!-- =========================================
+                         COMBUSTION LOGO
+                    ========================================== -->
 
                     <img
                         src="assets/details/combustion.png"
@@ -583,22 +854,33 @@
                     >
 
 
+                    <!-- =========================================
+                         BRAND BADGE
+                    ========================================== -->
 
-                    <!-- BRAND BADGE -->
+                    <div
+                        class="brand-badge"
+                    >
 
-                    <div class="brand-badge">
+                        <i
+                            class="fa-solid fa-fire"
+                            aria-hidden="true"
+                        ></i>
 
-                        <i class="fa-solid fa-fire"></i>
-
-                        A LIMITLEZZ BRAND
+                        <span>
+                            A LIMITLEZZ BRAND
+                        </span>
 
                     </div>
 
 
+                    <!-- =========================================
+                         COMBUSTION TITLE
+                    ========================================== -->
 
-                    <!-- COMBUSTION TITLE -->
-
-                    <h2 class="combustion-title">
+                    <h2
+                        class="combustion-title"
+                    >
 
                         COMBUSTION
 
@@ -609,10 +891,13 @@
                     </h2>
 
 
+                    <!-- =========================================
+                         DESCRIPTION
+                    ========================================== -->
 
-                    <!-- DESCRIPTION -->
-
-                    <p class="combustion-description">
+                    <p
+                        class="combustion-description"
+                    >
 
                         Built from the infrastructure and vision
                         of LIMITLEZZ — Combustion is game hosting
@@ -621,8 +906,9 @@
                     </p>
 
 
-
-                    <!-- TRY US -->
+                    <!-- =========================================
+                         TRY US BUTTON
+                    ========================================== -->
 
                     <a
                         href="https://Combustion.limitlezzhosts.qzz.io"
@@ -631,69 +917,75 @@
                         rel="noopener noreferrer"
                     >
 
-                        <i class="fa-solid fa-fire"></i>
+                        <i
+                            class="fa-solid fa-fire"
+                            aria-hidden="true"
+                        ></i>
 
-                        TRY US
+                        <span>
+                            TRY US
+                        </span>
 
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <i
+                            class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"
+                        ></i>
 
                     </a>
 
-
                 </div>
-
 
             </section>
 
-
         </div>
-
 
     </main>
 
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          FOOTER
-    ====================================================== -->
+    ========================================================== -->
 
-    <footer class="footer combustion-footer">
+    <footer
+        class="footer combustion-footer"
+    >
 
-
-        <div class="footer-content">
-
+        <div
+            class="footer-content"
+        >
 
             <h3>
                 LIMITLEZZ
             </h3>
 
-
             <p>
                 Built by the Limitlezz Team.
             </p>
-
 
             <p>
                 Powered by caffeine and bad decisions.
             </p>
 
-
         </div>
-
 
     </footer>
 
 
+    <!-- =========================================================
+         LIMITLEZZ JAVASCRIPT
+    ========================================================== -->
 
-    <!-- =====================================================
-         SCRIPTS
-    ====================================================== -->
+    <script
+        src="js/cursor.js"
+    ></script>
 
-    <script src="js/cursor.js"></script>
+    <script
+        src="js/navbar.js"
+    ></script>
 
-    <script src="js/navbar.js"></script>
-
-    <script src="js/discord.js"></script>
+    <script
+        src="js/discord.js"
+    ></script>
 
 
 </body>
