@@ -34,30 +34,53 @@
 
         body {
             margin: 0;
+            padding: 0;
             overflow-x: hidden;
             background: #050505;
-            color: white;
         }
 
 
         /* =========================================================
-           COMBUSTION PAGE BACKGROUND
+           COMBUSTION PAGE
+           
+           IMPORTANT:
+           The custom PNG belongs to the page itself.
+           It is NOT fixed to the viewport.
         ========================================================= */
 
         .combustion-page {
             position: relative;
-            min-height: 100vh;
+            overflow: hidden;
+            isolation: isolate;
 
-            background-image:
-                url("assets/Combustion/Combustion-bg.png");
+            background:
+                #050505 url("assets/Combustion/Combustion-bg.png")
+                center top
+                / 100% auto
+                no-repeat;
+        }
 
-            background-repeat: no-repeat;
 
-            background-position:
-                center top;
+        /*
+           This creates the actual page height from the artwork.
 
-            background-size:
-                cover;
+           The background is allowed to determine the visual journey,
+           while the sections sit on top of it.
+        */
+
+        .combustion-canvas {
+            position: relative;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .combustion-navbar {
+            position: relative;
+            z-index: 50;
         }
 
 
@@ -67,6 +90,7 @@
 
         .combustion-hero {
             position: relative;
+            z-index: 5;
 
             min-height: 100vh;
 
@@ -76,65 +100,37 @@
 
             text-align: center;
 
-            padding:
-                120px 20px;
+            padding: 130px 24px 100px;
 
             box-sizing: border-box;
         }
 
-        .combustion-hero::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(5,5,5,.15),
-                    rgba(5,5,5,.35)
-                );
-
-            pointer-events: none;
-        }
-
         .combustion-hero-content {
-            position: relative;
-            z-index: 2;
-
             width: min(900px, 100%);
         }
 
 
         /* =========================================================
-           BADGE
+           LIMITLEZZ BADGE
         ========================================================= */
 
-        .combustion-badge {
+        .limitless-badge {
             display: inline-flex;
-
             align-items: center;
             gap: 10px;
 
-            padding:
-                8px 18px;
+            padding: 8px 18px;
 
-            border:
-                1px solid
-                rgba(192,132,252,.45);
-
+            border: 1px solid rgba(192, 132, 252, .45);
             border-radius: 999px;
 
-            background:
-                rgba(139,92,246,.08);
+            background: rgba(0, 0, 0, .18);
 
-            color:
-                #c084fc;
+            color: #c084fc;
 
             font-size: 14px;
 
-            backdrop-filter:
-                blur(10px);
+            backdrop-filter: blur(8px);
         }
 
 
@@ -142,270 +138,182 @@
            HERO TITLE
         ========================================================= */
 
-        .combustion-hero-title {
-            margin:
-                30px 0 20px;
+        .hero-title {
+            margin: 28px 0 18px;
 
-            font-size:
-                clamp(55px, 9vw, 110px);
+            font-size: clamp(55px, 9vw, 110px);
 
-            line-height:
-                .9;
+            line-height: .88;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            letter-spacing:
-                -4px;
+            letter-spacing: -5px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #c084fc,
-                    #ffffff
-                );
+            color: #fff;
 
-            -webkit-background-clip:
-                text;
-
-            background-clip:
-                text;
-
-            color:
-                transparent;
+            text-shadow:
+                0 8px 40px rgba(0, 0, 0, .45);
         }
 
-        .combustion-hero-subtitle {
-            font-size:
-                clamp(20px, 3vw, 30px);
+        .hero-subtitle {
+            margin-bottom: 24px;
 
-            color:
-                #c084fc;
+            font-size: clamp(20px, 3vw, 30px);
 
-            margin-bottom:
-                25px;
+            color: #c084fc;
         }
 
-        .combustion-hero-description {
-            max-width:
-                680px;
+        .hero-description {
+            width: min(680px, 100%);
 
-            margin:
-                0 auto 35px;
+            margin: 0 auto 34px;
 
-            color:
-                #b5b5b5;
+            color: #d0d0d0;
 
-            font-size:
-                18px;
+            font-size: 18px;
 
-            line-height:
-                1.8;
+            line-height: 1.8;
+
+            text-shadow:
+                0 3px 20px rgba(0, 0, 0, .7);
         }
 
 
         /* =========================================================
-           EXPLORE BUTTON
+           EXPLORE
         ========================================================= */
 
-        .combustion-explore {
-            display:
-                inline-flex;
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
 
-            align-items:
-                center;
+            padding: 14px 27px;
 
-            gap:
-                10px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 10px;
 
-            padding:
-                14px 28px;
+            background: rgba(0, 0, 0, .2);
 
-            border-radius:
-                10px;
+            color: #fff;
 
-            text-decoration:
-                none;
+            text-decoration: none;
 
-            color:
-                white;
-
-            border:
-                1px solid
-                rgba(255,255,255,.18);
-
-            background:
-                rgba(255,255,255,.06);
-
-            backdrop-filter:
-                blur(10px);
+            backdrop-filter: blur(8px);
 
             transition:
-                .3s ease;
+                transform .25s ease,
+                background .25s ease,
+                border-color .25s ease;
         }
 
-        .combustion-explore:hover {
-            transform:
-                translateY(-3px);
+        .explore-btn:hover {
+            transform: translateY(-3px);
+
+            background: rgba(0, 0, 0, .35);
 
             border-color:
-                rgba(255,255,255,.35);
-
-            background:
-                rgba(255,255,255,.1);
+                rgba(255, 255, 255, .4);
         }
 
 
         /* =========================================================
-           INTRO / TRANSITION
+           TRANSITION AREA
+
+           No artificial background.
+           Your PNG remains visible here.
         ========================================================= */
 
         .combustion-transition {
             position: relative;
+            z-index: 5;
 
-            min-height:
-                65vh;
+            min-height: 75vh;
 
-            display:
-                flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
+            padding: 100px 24px;
 
-            justify-content:
-                center;
+            text-align: center;
 
-            text-align:
-                center;
-
-            padding:
-                120px 20px;
-
-            box-sizing:
-                border-box;
+            box-sizing: border-box;
         }
 
-        .combustion-transition-content {
-            position: relative;
-            z-index: 2;
-
-            max-width:
-                800px;
+        .transition-content {
+            width: min(800px, 100%);
         }
 
         .transition-label {
-            color:
-                #ff9b35;
+            margin-bottom: 20px;
 
-            font-size:
-                13px;
+            color: #ff9b35;
 
-            text-transform:
-                uppercase;
+            font-size: 13px;
 
-            letter-spacing:
-                5px;
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            text-shadow:
+                0 3px 20px rgba(0, 0, 0, .8);
         }
 
-        .combustion-transition h2 {
-            margin:
-                20px 0;
+        .transition-title {
+            margin: 0;
 
-            font-size:
-                clamp(45px, 8vw, 90px);
+            font-size: clamp(50px, 8vw, 95px);
 
-            line-height:
-                .9;
+            line-height: .88;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #ffffff,
-                    #ffb300,
-                    #ff4b00
-                );
+            letter-spacing: -4px;
 
-            -webkit-background-clip:
-                text;
+            color: #fff;
 
-            background-clip:
-                text;
-
-            color:
-                transparent;
+            text-shadow:
+                0 5px 40px rgba(0, 0, 0, .7);
         }
 
-        .combustion-transition p {
-            color:
-                #ffd8bf;
+        .transition-description {
+            margin: 28px auto 0;
 
-            font-size:
-                18px;
+            color: #f0d4c5;
 
-            line-height:
-                1.8;
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            text-shadow:
+                0 3px 20px rgba(0, 0, 0, .8);
         }
 
 
         /* =========================================================
            COMBUSTION SECTION
+
+           This is the destination of the scroll.
         ========================================================= */
 
         .combustion-section {
             position: relative;
+            z-index: 5;
 
-            min-height:
-                100vh;
+            min-height: 100vh;
 
-            display:
-                flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
+            padding: 120px 24px;
 
-            justify-content:
-                center;
+            box-sizing: border-box;
 
-            text-align:
-                center;
-
-            padding:
-                120px 20px;
-
-            box-sizing:
-                border-box;
-        }
-
-        .combustion-section::before {
-            content: "";
-
-            position:
-                absolute;
-
-            inset:
-                0;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255,75,0,.18),
-                    transparent 55%
-                );
-
-            pointer-events:
-                none;
+            text-align: center;
         }
 
         .combustion-content {
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            max-width:
-                900px;
+            width: min(900px, 100%);
         }
 
 
@@ -414,58 +322,52 @@
         ========================================================= */
 
         .combustion-logo {
-            width:
-                clamp(120px, 17vw, 210px);
+            display: block;
 
-            height:
-                clamp(120px, 17vw, 210px);
+            width: clamp(120px, 17vw, 210px);
+            height: clamp(120px, 17vw, 210px);
 
-            object-fit:
-                contain;
+            object-fit: contain;
 
-            margin-bottom:
-                25px;
+            margin:
+                0 auto 26px;
 
             filter:
                 drop-shadow(
-                    0 0 30px
-                    rgba(255,80,0,.45)
+                    0 8px 35px
+                    rgba(0, 0, 0, .55)
                 );
         }
 
 
         /* =========================================================
-           FIRE BADGE
+           BRAND BADGE
         ========================================================= */
 
-        .fire-badge {
-            display:
-                inline-flex;
+        .brand-badge {
+            display: inline-flex;
 
-            align-items:
-                center;
+            align-items: center;
+            gap: 9px;
 
-            gap:
-                10px;
-
-            padding:
-                8px 18px;
+            padding: 8px 18px;
 
             border:
                 1px solid
-                rgba(255,100,0,.55);
+                rgba(255, 116, 40, .6);
 
-            border-radius:
-                999px;
+            border-radius: 999px;
 
             background:
-                rgba(255,70,0,.08);
+                rgba(0, 0, 0, .2);
 
             color:
-                #ff9d32;
+                #ffad65;
 
-            font-size:
-                14px;
+            font-size: 14px;
+
+            backdrop-filter:
+                blur(8px);
         }
 
 
@@ -475,73 +377,65 @@
 
         .combustion-title {
             margin:
-                25px 0 0;
+                28px 0 0;
 
             font-size:
                 clamp(60px, 10vw, 125px);
 
             line-height:
-                .85;
+                .82;
+
+            font-weight:
+                700;
 
             letter-spacing:
                 -5px;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #fff7c7,
-                    #ffb300 40%,
-                    #ff4b00 75%,
-                    #d91e00
-                );
-
-            -webkit-background-clip:
-                text;
-
-            background-clip:
-                text;
-
             color:
-                transparent;
+                #fff;
+
+            text-shadow:
+                0 8px 45px
+                rgba(0, 0, 0, .6);
         }
 
         .combustion-title span {
-            display:
-                block;
+            display: block;
 
-            margin-top:
-                25px;
+            margin-top: 22px;
 
-            font-size:
-                .3em;
+            font-size: .28em;
 
-            letter-spacing:
-                12px;
+            line-height: 1;
 
-            color:
-                #ff8a00;
+            letter-spacing: 12px;
+
+            color: #ff9a38;
         }
 
 
         /* =========================================================
-           DESCRIPTION
+           COMBUSTION DESCRIPTION
         ========================================================= */
 
         .combustion-description {
-            max-width:
-                650px;
+            width: min(650px, 100%);
 
             margin:
                 35px auto;
 
             color:
-                #ffd8c4;
+                #ffe0cf;
 
             font-size:
                 19px;
 
             line-height:
                 1.8;
+
+            text-shadow:
+                0 3px 25px
+                rgba(0, 0, 0, .8);
         }
 
 
@@ -555,21 +449,33 @@
 
             align-items:
                 center;
-
             justify-content:
                 center;
 
             gap:
                 12px;
 
+            min-width:
+                170px;
+
             padding:
-                17px 45px;
+                17px 42px;
+
+            border:
+                0;
 
             border-radius:
                 12px;
 
-            text-decoration:
-                none;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7000,
+                    #f12d00
+                );
+
+            color:
+                #fff;
 
             font-size:
                 18px;
@@ -577,33 +483,25 @@
             font-weight:
                 700;
 
-            color:
-                white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff6a00,
-                    #ff2600
-                );
+            text-decoration:
+                none;
 
             box-shadow:
-                0 0 30px
-                rgba(255,70,0,.3);
+                0 10px 35px
+                rgba(255, 65, 0, .28);
 
             transition:
-                transform .3s ease,
-                box-shadow .3s ease;
+                transform .25s ease,
+                box-shadow .25s ease;
         }
 
         .try-us:hover {
             transform:
-                translateY(-4px)
-                scale(1.03);
+                translateY(-4px);
 
             box-shadow:
-                0 0 55px
-                rgba(255,70,0,.6);
+                0 15px 50px
+                rgba(255, 65, 0, .55);
         }
 
 
@@ -611,22 +509,22 @@
            FOOTER
         ========================================================= */
 
-        .fire-footer {
-            position:
-                relative;
+        .combustion-footer {
+            position: relative;
+            z-index: 10;
 
             border-top:
                 1px solid
-                rgba(255,70,0,.2);
+                rgba(255, 100, 30, .2);
 
             background:
-                rgba(5,5,5,.85);
+                rgba(5, 5, 5, .82);
 
             backdrop-filter:
-                blur(10px);
+                blur(12px);
         }
 
-        .fire-footer h3 {
+        .combustion-footer h3 {
             color:
                 #ff6a00;
         }
@@ -638,16 +536,32 @@
 
         @media (max-width: 700px) {
 
-            .combustion-hero,
-            .combustion-transition,
+            .combustion-hero {
+                min-height: 100svh;
+
+                padding:
+                    120px 18px 80px;
+            }
+
+            .combustion-transition {
+                min-height:
+                    65vh;
+
+                padding:
+                    90px 18px;
+            }
+
             .combustion-section {
+                min-height:
+                    100svh;
+
                 padding:
                     100px 18px;
             }
 
-            .combustion-hero-title {
+            .hero-title {
                 letter-spacing:
-                    -2px;
+                    -3px;
             }
 
             .combustion-title {
@@ -662,7 +576,10 @@
 
             .try-us {
                 width:
-                    min(100%, 280px);
+                    min(280px, 100%);
+
+                box-sizing:
+                    border-box;
             }
         }
 
@@ -672,6 +589,10 @@
 
 <body>
 
+    <!-- =========================================================
+         CURSOR
+    ========================================================== -->
+
     <div class="cursor-glow"></div>
 
 
@@ -679,7 +600,7 @@
          NAVBAR
     ========================================================== -->
 
-    <nav class="navbar">
+    <nav class="navbar combustion-navbar">
 
         <a href="index.html" class="logo">
 
@@ -732,41 +653,26 @@
 
 
             <li>
-
                 <a href="vps.html">
-
                     <i class="fa-solid fa-server"></i>
-
                     VPS Hosting
-
                 </a>
-
             </li>
 
 
             <li>
-
                 <a href="customs.html">
-
                     <i class="fa-solid fa-code"></i>
-
                     Customs
-
                 </a>
-
             </li>
 
 
             <li>
-
                 <a href="team.html">
-
                     <i class="fa-solid fa-users"></i>
-
                     Team
-
                 </a>
-
             </li>
 
         </ul>
@@ -779,11 +685,8 @@
                 id="discord-login"
                 class="login-btn"
             >
-
                 <i class="fa-brands fa-discord"></i>
-
                 Login
-
             </a>
 
 
@@ -838,11 +741,8 @@
                         id="logout-btn"
                         class="logout"
                     >
-
                         <i class="fa-solid fa-right-from-bracket"></i>
-
                         Logout
-
                     </a>
 
                 </div>
@@ -901,181 +801,191 @@
 
 
     <!-- =========================================================
-         PAGE BACKGROUND WRAPPER
+         CUSTOM COMBUSTION ARTWORK
+         
+         Everything inside this wrapper scrolls naturally.
+         The PNG is NOT fixed.
     ========================================================== -->
 
     <main class="combustion-page">
 
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
-        <section class="combustion-hero">
-
-            <div class="combustion-hero-content">
-
-                <div class="combustion-badge">
-
-                    <i class="fa-solid fa-infinity"></i>
-
-                    LIMITLEZZ PRESENTS
-
-                </div>
+        <div class="combustion-canvas">
 
 
-                <h1 class="combustion-hero-title">
+            <!-- =================================================
+                 HERO
+            ================================================== -->
 
-                    LIMITLESS
-                    <br>
-                    PERFORMANCE
+            <section class="combustion-hero">
 
-                </h1>
+                <div class="combustion-hero-content">
 
+                    <div class="limitless-badge">
 
-                <div class="combustion-hero-subtitle">
+                        <i class="fa-solid fa-infinity"></i>
 
-                    Something powerful is coming.
+                        LIMITLEZZ PRESENTS
 
-                </div>
-
-
-                <p class="combustion-hero-description">
-
-                    We built Limitlezz to push hosting beyond its limits.
-                    Now we're taking that same infrastructure,
-                    performance and passion into something new.
-
-                </p>
+                    </div>
 
 
-                <a
-                    href="#combustion"
-                    class="combustion-explore"
-                >
+                    <h1 class="hero-title">
 
-                    Explore
+                        LIMITLESS
+                        <br>
+                        PERFORMANCE
 
-                    <i class="fa-solid fa-arrow-down"></i>
-
-                </a>
-
-            </div>
-
-        </section>
+                    </h1>
 
 
+                    <div class="hero-subtitle">
 
-        <!-- =====================================================
-             TRANSITION
-        ====================================================== -->
+                        Something powerful is coming.
 
-        <section class="combustion-transition">
+                    </div>
 
-            <div class="combustion-transition-content">
 
-                <div class="transition-label">
+                    <p class="hero-description">
 
-                    LIMITLEZZ × THE NEXT GENERATION
+                        We built Limitlezz to push hosting beyond its
+                        limits. Now we're taking that same
+                        infrastructure, performance and passion
+                        into something new.
+
+                    </p>
+
+
+                    <a
+                        href="#combustion"
+                        class="explore-btn"
+                    >
+
+                        Explore
+
+                        <i class="fa-solid fa-arrow-down"></i>
+
+                    </a>
 
                 </div>
 
-
-                <h2>
-
-                    WE'RE
-                    <br>
-                    IGNITING
-
-                </h2>
-
-
-                <p>
-
-                    Same foundation.
-                    <br>
-
-                    New identity.
-                    <br>
-
-                    More fire.
-
-                </p>
-
-            </div>
-
-        </section>
+            </section>
 
 
 
-        <!-- =====================================================
-             COMBUSTION
-        ====================================================== -->
+            <!-- =================================================
+                 TRANSITION
+            ================================================== -->
 
-        <section
-            class="combustion-section"
-            id="combustion"
-        >
+            <section class="combustion-transition">
 
-            <div class="combustion-content">
+                <div class="transition-content">
 
+                    <div class="transition-label">
 
-                <img
-                    src="assets/details/combustion-BG.png"
-                    alt="Combustion"
-                    class="combustion-logo"
-                    onerror="this.style.display='none';"
-                >
+                        LIMITLEZZ × THE NEXT GENERATION
+
+                    </div>
 
 
-                <div class="fire-badge">
+                    <h2 class="transition-title">
 
-                    <i class="fa-solid fa-fire"></i>
+                        WE'RE
+                        <br>
+                        IGNITING
 
-                    A LIMITLEZZ BRAND
+                    </h2>
+
+
+                    <p class="transition-description">
+
+                        Same foundation.
+                        <br>
+                        New identity.
+                        <br>
+                        More fire.
+
+                    </p>
 
                 </div>
 
-
-                <h2 class="combustion-title">
-
-                    COMBUSTION
-
-                    <span>
-                        HOSTING
-                    </span>
-
-                </h2>
+            </section>
 
 
-                <p class="combustion-description">
 
-                    Built from the infrastructure and vision of
-                    LIMITLEZZ — Combustion is game hosting
-                    fueled by performance, speed and fire.
+            <!-- =================================================
+                 COMBUSTION
+            ================================================== -->
 
-                </p>
+            <section
+                class="combustion-section"
+                id="combustion"
+            >
+
+                <div class="combustion-content">
 
 
-                <a
-                    href="https://combustion.limitlezzhosts.qzz.io"
-                    class="try-us"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                    <!--
+                        Change this path only if your actual
+                        Combustion logo is somewhere else.
+                    -->
 
-                    <i class="fa-solid fa-fire"></i>
+                    <img
+                        src="assets/details/combustion.png"
+                        alt="Combustion"
+                        class="combustion-logo"
+                    >
 
-                    TRY US
 
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <div class="brand-badge">
 
-                </a>
+                        <i class="fa-solid fa-fire"></i>
 
-            </div>
+                        A LIMITLEZZ BRAND
 
-        </section>
+                    </div>
 
+
+                    <h2 class="combustion-title">
+
+                        COMBUSTION
+
+                        <span>
+                            HOSTING
+                        </span>
+
+                    </h2>
+
+
+                    <p class="combustion-description">
+
+                        Built from the infrastructure and vision of
+                        LIMITLEZZ — Combustion is game hosting
+                        fueled by performance, speed and fire.
+
+                    </p>
+
+
+                    <a
+                        href="https://combustion.limitlezzhosts.qzz.io"
+                        class="try-us"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-solid fa-fire"></i>
+
+                        TRY US
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+        </div>
 
     </main>
 
@@ -1085,7 +995,7 @@
          FOOTER
     ========================================================== -->
 
-    <footer class="fire-footer">
+    <footer class="footer combustion-footer">
 
         <div class="footer-content">
 
@@ -1112,9 +1022,7 @@
     ========================================================== -->
 
     <script src="js/cursor.js"></script>
-
     <script src="js/navbar.js"></script>
-
     <script src="js/discord.js"></script>
 
 </body>
