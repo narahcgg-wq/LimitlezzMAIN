@@ -1,54 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <!-- =========================================================
-         DOCUMENT
-    ========================================================== -->
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="theme-color"
-        content="#050505"
-    >
-
-    <meta
-        name="description"
-        content="Combustion — A LIMITLEZZ brand."
-    >
-
-    <title>
-        Combustion | LIMITLEZZ
-    </title>
-
+    <title>Combustion | LIMITLEZZ</title>
 
     <!-- =========================================================
-         GOOGLE FONTS
+         FONTS
     ========================================================== -->
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap"
         rel="stylesheet"
     >
-
 
     <!-- =========================================================
          FONT AWESOME
@@ -59,40 +27,1461 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     >
 
-
     <!-- =========================================================
-         MAIN LIMITLEZZ STYLESHEET
+         MAIN LIMITLEZZ CSS
     ========================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- =========================================================
-         COMBUSTION STYLESHEET
+         COMBUSTION PAGE CSS
+         Everything stays inside this file.
     ========================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="css/combustion.css"
-    >
+    <style>
 
+        /* =====================================================
+           RESET / PAGE FOUNDATION
+        ====================================================== */
+
+        html {
+            scroll-behavior: smooth;
+            background: #050505;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: #050505;
+        }
+
+        body.combustion-body {
+            background: #050505;
+        }
+
+        /* =====================================================
+           MAIN PAGE WRAPPER
+
+           The background belongs to THIS wrapper.
+           It therefore scrolls together with the content.
+        ====================================================== */
+
+        .combustion-page {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+
+            background:
+                #050505;
+
+            isolation: isolate;
+        }
+
+        /* =====================================================
+           ACTUAL COMBUSTION BACKGROUND
+
+           FILE:
+           assets/Combustion/Combustion-BG.png
+
+           IMPORTANT:
+           It is NOT fixed to the viewport.
+
+           It is absolute inside .combustion-page,
+           so it moves naturally with the page.
+        ====================================================== */
+
+        .combustion-background {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -3;
+
+            pointer-events: none;
+            user-select: none;
+
+            object-fit: cover;
+            object-position: center top;
+
+            display: block;
+
+            opacity: 1;
+
+            transform:
+                translate3d(0, 0, 0)
+                scale(1.02);
+
+            will-change: transform;
+        }
+
+        /* =====================================================
+           DARK OVERLAY
+
+           Keeps the text readable while preserving the
+           original artwork.
+        ====================================================== */
+
+        .combustion-page::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -2;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(3, 3, 3, 0.18) 0%,
+                    rgba(3, 3, 3, 0.05) 25%,
+                    rgba(3, 3, 3, 0.12) 50%,
+                    rgba(3, 3, 3, 0.35) 75%,
+                    rgba(3, 3, 3, 0.88) 100%
+                );
+        }
+
+        /* =====================================================
+           SUBTLE COLOR BLEND
+        ====================================================== */
+
+        .combustion-page::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(255, 75, 0, 0.04),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(20, 3, 0, 0.04) 50%,
+                    rgba(10, 2, 0, 0.20) 100%
+                );
+        }
+
+        /* =====================================================
+           CONTENT LAYER
+        ====================================================== */
+
+        .combustion-content-layer {
+            position: relative;
+            z-index: 1;
+
+            width: 100%;
+        }
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .combustion-hero {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                140px
+                24px
+                160px;
+
+            box-sizing: border-box;
+        }
+
+        .combustion-hero-content {
+            width: min(900px, 100%);
+
+            margin: 0 auto;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =====================================================
+           BADGE
+        ====================================================== */
+
+        .limitless-badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding:
+                9px
+                18px;
+
+            border:
+                1px solid
+                rgba(180, 120, 255, 0.55);
+
+            border-radius: 999px;
+
+            background:
+                rgba(120, 70, 200, 0.10);
+
+            color:
+                #d5b5ff;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            letter-spacing: 1px;
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 0 30px
+                rgba(140, 80, 255, 0.08);
+        }
+
+        .limitless-badge i {
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           HERO TITLE
+        ====================================================== */
+
+        .hero-title {
+            margin:
+                34px
+                0
+                20px;
+
+            font-size:
+                clamp(
+                    58px,
+                    10vw,
+                    125px
+                );
+
+            line-height: 0.88;
+
+            font-weight: 700;
+
+            letter-spacing: -5px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #e8d8ff 42%,
+                    #a56cff 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            color: transparent;
+
+            text-shadow:
+                0 0 70px
+                rgba(140, 80, 255, 0.12);
+        }
+
+        /* =====================================================
+           HERO SUBTITLE
+        ====================================================== */
+
+        .hero-subtitle {
+            margin:
+                25px
+                0
+                0;
+
+            color:
+                #c999ff;
+
+            font-size:
+                clamp(
+                    19px,
+                    3vw,
+                    29px
+                );
+
+            font-weight: 400;
+        }
+
+        /* =====================================================
+           HERO DESCRIPTION
+        ====================================================== */
+
+        .hero-description {
+            max-width: 680px;
+
+            margin:
+                28px
+                auto
+                38px;
+
+            color:
+                rgba(225, 220, 232, 0.72);
+
+            font-size:
+                17px;
+
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           EXPLORE BUTTON
+        ====================================================== */
+
+        .explore-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 11px;
+
+            padding:
+                15px
+                29px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            color: #ffffff;
+
+            background:
+                rgba(255, 255, 255, 0.055);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.16);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            transform:
+                translateY(-4px);
+
+            background:
+                rgba(255, 255, 255, 0.09);
+
+            border-color:
+                rgba(190, 130, 255, 0.5);
+
+            box-shadow:
+                0 15px 45px
+                rgba(120, 60, 255, 0.14);
+        }
+
+        /* =====================================================
+           TRANSITION SECTION
+
+           IMPORTANT:
+           This is transparent enough that the same BG
+           continues behind it.
+        ====================================================== */
+
+        .combustion-transition {
+            position: relative;
+
+            width: 100%;
+
+            min-height:
+                80vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                120px
+                24px;
+
+            box-sizing: border-box;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(8, 5, 12, 0.08),
+                    rgba(35, 7, 0, 0.20),
+                    rgba(40, 8, 0, 0.34)
+                );
+        }
+
+        /* =====================================================
+           TRANSITION GLOW
+        ====================================================== */
+
+        .combustion-transition::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 0;
+
+            width:
+                min(900px, 100%);
+
+            height: 420px;
+
+            transform:
+                translateX(-50%);
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    ellipse at center bottom,
+                    rgba(255, 75, 0, 0.25),
+                    transparent 68%
+                );
+
+            filter:
+                blur(30px);
+        }
+
+        .transition-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+        }
+
+        /* =====================================================
+           TRANSITION LABEL
+        ====================================================== */
+
+        .transition-label {
+            display: block;
+
+            margin-bottom: 24px;
+
+            color:
+                #ff9a3d;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           TRANSITION TITLE
+        ====================================================== */
+
+        .transition-title {
+            margin: 0;
+
+            font-size:
+                clamp(
+                    52px,
+                    9vw,
+                    105px
+                );
+
+            line-height: 0.88;
+
+            letter-spacing:
+                -4px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff5d2 0%,
+                    #ffbc42 40%,
+                    #ff6500 72%,
+                    #e52d00 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            color: transparent;
+
+            text-shadow:
+                0 0 60px
+                rgba(255, 70, 0, 0.15);
+        }
+
+        /* =====================================================
+           TRANSITION DESCRIPTION
+        ====================================================== */
+
+        .transition-description {
+            margin:
+                32px
+                auto
+                0;
+
+            color:
+                rgba(255, 215, 190, 0.75);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           COMBUSTION SECTION
+        ====================================================== */
+
+        .combustion-section {
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                140px
+                24px
+                180px;
+
+            box-sizing: border-box;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(40, 8, 0, 0.30),
+                    rgba(20, 3, 0, 0.38),
+                    rgba(5, 5, 5, 0.62)
+                );
+        }
+
+        /* =====================================================
+           COMBUSTION CONTENT
+        ====================================================== */
+
+        .combustion-content {
+            position: relative;
+
+            z-index: 3;
+
+            width:
+                min(
+                    900px,
+                    100%
+                );
+
+            margin: 0 auto;
+        }
+
+        /* =====================================================
+           COMBUSTION LOGO
+        ====================================================== */
+
+        .combustion-logo {
+            display: block;
+
+            width:
+                clamp(
+                    120px,
+                    17vw,
+                    215px
+                );
+
+            height:
+                clamp(
+                    120px,
+                    17vw,
+                    215px
+                );
+
+            object-fit: contain;
+
+            margin:
+                0
+                auto
+                26px;
+
+            filter:
+                drop-shadow(
+                    0 0 30px
+                    rgba(255, 75, 0, 0.50)
+                );
+
+            animation:
+                combustionLogoPulse
+                4s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes combustionLogoPulse {
+
+            0%,
+            100% {
+                filter:
+                    drop-shadow(
+                        0 0 25px
+                        rgba(255, 70, 0, 0.35)
+                    );
+            }
+
+            50% {
+                filter:
+                    drop-shadow(
+                        0 0 50px
+                        rgba(255, 70, 0, 0.65)
+                    );
+            }
+        }
+
+        /* =====================================================
+           BRAND BADGE
+        ====================================================== */
+
+        .brand-badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding:
+                8px
+                17px;
+
+            border:
+                1px solid
+                rgba(255, 100, 0, 0.55);
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 70, 0, 0.08);
+
+            color:
+                #ff9d3c;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+        }
+
+        /* =====================================================
+           COMBUSTION TITLE
+        ====================================================== */
+
+        .combustion-title {
+            margin:
+                30px
+                0
+                0;
+
+            font-size:
+                clamp(
+                    60px,
+                    11vw,
+                    135px
+                );
+
+            line-height:
+                0.82;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                -6px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff8d4 0%,
+                    #ffc34b 34%,
+                    #ff7200 67%,
+                    #d92a00 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            color: transparent;
+
+            text-shadow:
+                0 0 70px
+                rgba(255, 65, 0, 0.20);
+        }
+
+        /* =====================================================
+           HOSTING SUBTITLE
+        ====================================================== */
+
+        .combustion-title span {
+            display: block;
+
+            margin-top:
+                27px;
+
+            font-size:
+                0.27em;
+
+            line-height: 1;
+
+            letter-spacing:
+                13px;
+
+            padding-left:
+                13px;
+
+            color:
+                #ff8a00;
+
+            background:
+                none;
+
+            -webkit-text-fill-color:
+                #ff8a00;
+
+            text-shadow:
+                0 0 25px
+                rgba(255, 90, 0, 0.30);
+        }
+
+        /* =====================================================
+           DESCRIPTION
+        ====================================================== */
+
+        .combustion-description {
+            max-width:
+                680px;
+
+            margin:
+                38px
+                auto
+                42px;
+
+            color:
+                rgba(255, 218, 200, 0.78);
+
+            font-size:
+                18px;
+
+            line-height:
+                1.8;
+        }
+
+        /* =====================================================
+           TRY US BUTTON
+        ====================================================== */
+
+        .try-us {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            padding:
+                17px
+                44px;
+
+            min-width:
+                170px;
+
+            box-sizing:
+                border-box;
+
+            border-radius:
+                12px;
+
+            text-decoration:
+                none;
+
+            color:
+                #ffffff;
+
+            font-size:
+                17px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                0.5px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7100,
+                    #ff2600
+                );
+
+            border:
+                1px solid
+                rgba(255, 170, 100, 0.22);
+
+            box-shadow:
+                0 0 30px
+                rgba(255, 70, 0, 0.30),
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.16);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                filter 0.3s ease;
+        }
+
+        .try-us:hover {
+            transform:
+                translateY(-5px)
+                scale(1.035);
+
+            filter:
+                brightness(1.08);
+
+            box-shadow:
+                0 0 60px
+                rgba(255, 70, 0, 0.60),
+                0 15px 50px
+                rgba(255, 40, 0, 0.20);
+        }
+
+        .try-us i {
+            font-size:
+                14px;
+        }
+
+        /* =====================================================
+           FIRE PARTICLES
+        ====================================================== */
+
+        .fire-particles {
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            z-index:
+                4;
+
+            pointer-events:
+                none;
+
+            overflow:
+                hidden;
+
+            opacity:
+                0.65;
+        }
+
+        .fire-particle {
+            position:
+                absolute;
+
+            bottom:
+                -20px;
+
+            width:
+                4px;
+
+            height:
+                4px;
+
+            border-radius:
+                50%;
+
+            background:
+                #ff8a00;
+
+            box-shadow:
+                0 0 10px
+                #ff4d00,
+                0 0 20px
+                rgba(255, 120, 0, 0.8);
+
+            animation:
+                fireParticleRise
+                linear
+                infinite;
+        }
+
+        .fire-particle:nth-child(1) {
+            left: 8%;
+            animation-duration: 7s;
+        }
+
+        .fire-particle:nth-child(2) {
+            left: 17%;
+            animation-duration: 5.5s;
+            animation-delay: 1.5s;
+        }
+
+        .fire-particle:nth-child(3) {
+            left: 28%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
+
+        .fire-particle:nth-child(4) {
+            left: 39%;
+            animation-duration: 6s;
+            animation-delay: 0.5s;
+        }
+
+        .fire-particle:nth-child(5) {
+            left: 51%;
+            animation-duration: 8.5s;
+            animation-delay: 2.5s;
+        }
+
+        .fire-particle:nth-child(6) {
+            left: 63%;
+            animation-duration: 6.5s;
+        }
+
+        .fire-particle:nth-child(7) {
+            left: 74%;
+            animation-duration: 7.5s;
+            animation-delay: 1s;
+        }
+
+        .fire-particle:nth-child(8) {
+            left: 86%;
+            animation-duration: 5.8s;
+            animation-delay: 2s;
+        }
+
+        .fire-particle:nth-child(9) {
+            left: 94%;
+            animation-duration: 9s;
+        }
+
+        @keyframes fireParticleRise {
+
+            0% {
+                transform:
+                    translate3d(
+                        0,
+                        0,
+                        0
+                    )
+                    scale(0.3);
+
+                opacity:
+                    0;
+            }
+
+            15% {
+                opacity:
+                    0.8;
+            }
+
+            70% {
+                opacity:
+                    0.5;
+            }
+
+            100% {
+                transform:
+                    translate3d(
+                        80px,
+                        -110vh,
+                        0
+                    )
+                    scale(1.2);
+
+                opacity:
+                    0;
+            }
+        }
+
+        /* =====================================================
+           GLOW ORBS
+        ====================================================== */
+
+        .fire-glow {
+            position:
+                absolute;
+
+            border-radius:
+                50%;
+
+            pointer-events:
+                none;
+
+            filter:
+                blur(50px);
+
+            opacity:
+                0.35;
+
+            z-index:
+                0;
+        }
+
+        .fire-glow.one {
+            width:
+                420px;
+
+            height:
+                420px;
+
+            left:
+                50%;
+
+            bottom:
+                0;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                rgba(255, 65, 0, 0.20);
+        }
+
+        .fire-glow.two {
+            width:
+                300px;
+
+            height:
+                300px;
+
+            left:
+                8%;
+
+            top:
+                60%;
+
+            background:
+                rgba(255, 100, 0, 0.08);
+        }
+
+        .fire-glow.three {
+            width:
+                300px;
+
+            height:
+                300px;
+
+            right:
+                8%;
+
+            top:
+                45%;
+
+            background:
+                rgba(255, 50, 0, 0.08);
+        }
+
+        /* =====================================================
+           FIRE RING
+        ====================================================== */
+
+        .fire-ring {
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            top:
+                50%;
+
+            width:
+                min(
+                    650px,
+                    90vw
+                );
+
+            height:
+                min(
+                    650px,
+                    90vw
+                );
+
+            transform:
+                translate(
+                    -50%,
+                    -50%
+                );
+
+            border:
+                1px solid
+                rgba(255, 90, 0, 0.12);
+
+            border-radius:
+                50%;
+
+            box-shadow:
+                0 0 100px
+                rgba(255, 50, 0, 0.08);
+
+            pointer-events:
+                none;
+
+            animation:
+                fireRingPulse
+                5s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes fireRingPulse {
+
+            0%,
+            100% {
+                transform:
+                    translate(
+                        -50%,
+                        -50%
+                    )
+                    scale(0.82);
+
+                opacity:
+                    0.3;
+            }
+
+            50% {
+                transform:
+                    translate(
+                        -50%,
+                        -50%
+                    )
+                    scale(1.08);
+
+                opacity:
+                    0.7;
+            }
+        }
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .combustion-footer {
+            position:
+                relative;
+
+            z-index:
+                5;
+
+            border-top:
+                1px solid
+                rgba(255, 70, 0, 0.22);
+
+            background:
+                #050505;
+        }
+
+        .combustion-footer h3 {
+            color:
+                #ff6a00;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .combustion-hero {
+                min-height:
+                    90vh;
+
+                padding:
+                    130px
+                    20px
+                    120px;
+            }
+
+            .combustion-transition {
+                min-height:
+                    70vh;
+            }
+
+            .combustion-section {
+                min-height:
+                    90vh;
+
+                padding:
+                    120px
+                    20px
+                    140px;
+            }
+
+            .hero-title {
+                letter-spacing:
+                    -4px;
+            }
+
+            .combustion-title {
+                letter-spacing:
+                    -4px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .combustion-background {
+                object-position:
+                    center top;
+
+                transform:
+                    scale(1.08);
+            }
+
+            .combustion-hero {
+                min-height:
+                    100svh;
+
+                padding:
+                    110px
+                    18px
+                    90px;
+            }
+
+            .limitless-badge {
+                font-size:
+                    11px;
+
+                padding:
+                    8px
+                    14px;
+            }
+
+            .hero-title {
+                margin-top:
+                    27px;
+
+                font-size:
+                    clamp(
+                        48px,
+                        15vw,
+                        78px
+                    );
+
+                letter-spacing:
+                    -3px;
+            }
+
+            .hero-description {
+                font-size:
+                    15px;
+
+                line-height:
+                    1.7;
+            }
+
+            .combustion-transition {
+                min-height:
+                    72vh;
+
+                padding:
+                    100px
+                    18px;
+            }
+
+            .transition-label {
+                font-size:
+                    9px;
+
+                letter-spacing:
+                    3px;
+            }
+
+            .transition-title {
+                font-size:
+                    clamp(
+                        47px,
+                        15vw,
+                        75px
+                    );
+
+                letter-spacing:
+                    -3px;
+            }
+
+            .transition-description {
+                font-size:
+                    16px;
+            }
+
+            .combustion-section {
+                min-height:
+                    100svh;
+
+                padding:
+                    110px
+                    18px
+                    120px;
+            }
+
+            .combustion-logo {
+                width:
+                    140px;
+
+                height:
+                    140px;
+            }
+
+            .brand-badge {
+                font-size:
+                    10px;
+
+                padding:
+                    8px
+                    14px;
+            }
+
+            .combustion-title {
+                font-size:
+                    clamp(
+                        53px,
+                        16vw,
+                        82px
+                    );
+
+                letter-spacing:
+                    -4px;
+            }
+
+            .combustion-title span {
+                font-size:
+                    0.30em;
+
+                letter-spacing:
+                    8px;
+
+                padding-left:
+                    8px;
+            }
+
+            .combustion-description {
+                font-size:
+                    15px;
+
+                line-height:
+                    1.7;
+
+                margin:
+                    30px
+                    auto
+                    35px;
+            }
+
+            .try-us {
+                padding:
+                    15px
+                    32px;
+
+                font-size:
+                    15px;
+            }
+
+            .fire-ring {
+                width:
+                    500px;
+
+                height:
+                    500px;
+            }
+        }
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior:
+                    auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+        }
+
+    </style>
 </head>
 
-
-<body>
-
+<body class="combustion-body">
 
     <!-- =========================================================
-         CURSOR GLOW
+         CURSOR
     ========================================================== -->
 
-    <div
-        class="cursor-glow"
-        aria-hidden="true"
-    ></div>
+    <div class="cursor-glow"></div>
 
 
     <!-- =========================================================
@@ -101,123 +1490,57 @@
 
     <nav class="navbar">
 
+        <a href="index.html" class="logo">
 
-        <!-- =====================================================
-             LIMITLEZZ LOGO
-        ====================================================== -->
-
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="LIMITLEZZ Home"
-        >
-
-            <i
-                class="fa-solid fa-infinity"
-                aria-hidden="true"
-            ></i>
+            <i class="fa-solid fa-infinity"></i>
 
             <span class="logo-text">
-
-                LIMITLE
-
-                <span>
-                    ZZ
-                </span>
-
+                LIMITLE<span>ZZ</span>
             </span>
 
         </a>
 
 
-        <!-- =====================================================
-             DESKTOP NAVIGATION
-        ====================================================== -->
+        <!-- Desktop Navigation -->
 
         <ul class="nav-links">
 
-
-            <!-- =================================================
-                 HOME
-            ================================================== -->
-
             <li>
-
-                <a
-                    href="index.html"
-                >
-
+                <a href="index.html">
                     Home
-
                 </a>
-
             </li>
 
 
-            <!-- =================================================
-                 GAME HOSTING
-            ================================================== -->
-
             <li class="dropdown">
 
-                <a
-                    href="#"
-                    aria-haspopup="true"
-                >
+                <a href="#">
 
-                    <i
-                        class="fa-solid fa-gamepad"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-solid fa-gamepad"></i>
 
-                    <span>
-                        Game Hosting
-                    </span>
+                    Game Hosting
 
-                    <i
-                        class="fa-solid fa-chevron-down arrow"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
 
                 </a>
 
 
-                <!-- =============================================
-                     GAME HOSTING DROPDOWN
-                ============================================== -->
+                <div class="dropdown-menu">
 
-                <div
-                    class="dropdown-menu"
-                >
+                    <a href="gmsdecide.html">
 
-                    <a
-                        href="gmsdecide.html"
-                    >
+                        <i class="fa-solid fa-cube"></i>
 
-                        <i
-                            class="fa-solid fa-cube"
-                            aria-hidden="true"
-                        ></i>
-
-                        <span>
-                            Minecraft Java
-                        </span>
+                        Minecraft Java
 
                     </a>
 
 
-                    <a
-                        href="gmsdecide.html"
-                    >
+                    <a href="gmsdecide.html">
 
-                        <i
-                            class="fa-solid fa-mobile-screen"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-mobile-screen"></i>
 
-                        <span>
-                            Minecraft Bedrock
-                        </span>
+                        Minecraft Bedrock
 
                     </a>
 
@@ -226,72 +1549,39 @@
             </li>
 
 
-            <!-- =================================================
-                 VPS HOSTING
-            ================================================== -->
-
             <li>
 
-                <a
-                    href="vps.html"
-                >
+                <a href="vps.html">
 
-                    <i
-                        class="fa-solid fa-server"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-solid fa-server"></i>
 
-                    <span>
-                        VPS Hosting
-                    </span>
+                    VPS Hosting
 
                 </a>
 
             </li>
 
 
-            <!-- =================================================
-                 CUSTOMS
-            ================================================== -->
-
             <li>
 
-                <a
-                    href="customs.html"
-                >
+                <a href="customs.html">
 
-                    <i
-                        class="fa-solid fa-code"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-solid fa-code"></i>
 
-                    <span>
-                        Customs
-                    </span>
+                    Customs
 
                 </a>
 
             </li>
 
 
-            <!-- =================================================
-                 TEAM
-            ================================================== -->
-
             <li>
 
-                <a
-                    href="team.html"
-                >
+                <a href="team.html">
 
-                    <i
-                        class="fa-solid fa-users"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-solid fa-users"></i>
 
-                    <span>
-                        Team
-                    </span>
+                    Team
 
                 </a>
 
@@ -300,16 +1590,9 @@
         </ul>
 
 
-        <!-- =====================================================
-             NAV BUTTONS
-        ====================================================== -->
+        <!-- Login -->
 
         <div class="nav-buttons">
-
-
-            <!-- =================================================
-                 DISCORD LOGIN
-            ================================================== -->
 
             <a
                 href="#"
@@ -317,21 +1600,14 @@
                 class="login-btn"
             >
 
-                <i
-                    class="fa-brands fa-discord"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-brands fa-discord"></i>
 
-                <span>
-                    Login
-                </span>
+                Login
 
             </a>
 
 
-            <!-- =================================================
-                 USER PROFILE
-            ================================================== -->
+            <!-- User Profile -->
 
             <div
                 id="user-profile"
@@ -339,126 +1615,66 @@
                 style="display:none;"
             >
 
-
-                <!-- USER AVATAR -->
-
                 <img
                     id="user-avatar"
                     src=""
                     alt="Avatar"
                 >
 
+                <span id="user-name"></span>
 
-                <!-- USER NAME -->
-
-                <span
-                    id="user-name"
-                ></span>
+                <i class="fa-solid fa-chevron-down"></i>
 
 
-                <!-- PROFILE ARROW -->
+                <div class="profile-dropdown">
 
-                <i
-                    class="fa-solid fa-chevron-down"
-                    aria-hidden="true"
-                ></i>
+                    <a href="dashboard.html">
 
-
-                <!-- =============================================
-                     PROFILE DROPDOWN
-                ============================================== -->
-
-                <div
-                    class="profile-dropdown"
-                >
-
-
-                    <!-- DASHBOARD -->
-
-                    <a
-                        href="dashboard.html"
-                    >
-
-                        <i
-                            class="fa-solid fa-chart-line"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-chart-line"></i>
 
                         Dashboard
 
                     </a>
 
 
-                    <!-- MY SERVERS -->
+                    <a href="#">
 
-                    <a
-                        href="#"
-                    >
-
-                        <i
-                            class="fa-solid fa-gamepad"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-gamepad"></i>
 
                         My Servers
 
                     </a>
 
 
-                    <!-- VPS -->
+                    <a href="#">
 
-                    <a
-                        href="#"
-                    >
-
-                        <i
-                            class="fa-solid fa-server"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-server"></i>
 
                         VPS
 
                     </a>
 
 
-                    <!-- BILLING -->
+                    <a href="#">
 
-                    <a
-                        href="#"
-                    >
-
-                        <i
-                            class="fa-solid fa-credit-card"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-credit-card"></i>
 
                         Billing
 
                     </a>
 
 
-                    <!-- SETTINGS -->
+                    <a href="#">
 
-                    <a
-                        href="#"
-                    >
-
-                        <i
-                            class="fa-solid fa-gear"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-gear"></i>
 
                         Settings
 
                     </a>
 
 
-                    <!-- DROPDOWN DIVIDER -->
-
                     <hr>
 
-
-                    <!-- LOGOUT -->
 
                     <a
                         href="#"
@@ -466,10 +1682,7 @@
                         class="logout"
                     >
 
-                        <i
-                            class="fa-solid fa-right-from-bracket"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-right-from-bracket"></i>
 
                         Logout
 
@@ -482,110 +1695,61 @@
         </div>
 
 
-        <!-- =====================================================
-             MOBILE ACTIONS
-        ====================================================== -->
+        <!-- Mobile -->
 
         <div class="mobile-actions">
-
-
-            <!-- MOBILE VPS -->
 
             <a
                 href="vps.html"
                 class="mobile-vps"
             >
-
                 VPS
-
             </a>
 
 
-            <!-- MOBILE MENU BUTTON -->
+            <button class="mobile-menu-btn">
 
-            <button
-                type="button"
-                class="mobile-menu-btn"
-                aria-label="Open navigation menu"
-            >
-
-                <i
-                    class="fa-solid fa-ellipsis-vertical"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
 
             </button>
 
         </div>
 
 
-        <!-- =====================================================
-             MOBILE MENU
-        ====================================================== -->
+        <!-- Mobile Menu -->
 
-        <div
-            class="mobile-menu"
-        >
+        <div class="mobile-menu">
 
+            <a href="gmsdecide.html">
 
-            <!-- GAME HOSTING -->
-
-            <a
-                href="gmsdecide.html"
-            >
-
-                <i
-                    class="fa-solid fa-gamepad"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-solid fa-gamepad"></i>
 
                 Game Hosting
 
             </a>
 
 
-            <!-- CUSTOMS -->
+            <a href="customs.html">
 
-            <a
-                href="customs.html"
-            >
-
-                <i
-                    class="fa-solid fa-code"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-solid fa-code"></i>
 
                 Customs
 
             </a>
 
 
-            <!-- TEAM -->
+            <a href="team.html">
 
-            <a
-                href="team.html"
-            >
-
-                <i
-                    class="fa-solid fa-users"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-solid fa-users"></i>
 
                 Team
 
             </a>
 
 
-            <!-- LOGIN -->
+            <a href="#">
 
-            <a
-                href="#"
-            >
-
-                <i
-                    class="fa-solid fa-right-to-bracket"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-solid fa-right-to-bracket"></i>
 
                 Login
 
@@ -598,95 +1762,79 @@
 
     <!-- =========================================================
          COMBUSTION PAGE
-
-         IMPORTANT:
-
-         The Combustion background is intentionally NOT placed
-         inside this document as an <img>.
-
-         combustion.css applies:
-
-         url("../assets/Combustion/Combustion-BG.png")
-
-         directly to this entire .combustion-page element.
-
-         Therefore:
-
-         HERO
-             ↓
-         TRANSITION
-             ↓
-         COMBUSTION
-
-         all belong to the SAME background.
-
     ========================================================== -->
 
-
-    <main
-        class="combustion-page"
-    >
+    <main class="combustion-page">
 
 
         <!-- =====================================================
-             CONTENT LAYER
+             THE BACKGROUND
 
-             This layer contains the actual page content.
+             THIS IS THE IMPORTANT PART.
 
-             It does NOT contain another background image.
+             It is INSIDE the main wrapper.
+
+             It is NOT position: fixed.
+
+             It therefore moves down with the page.
         ====================================================== -->
 
-        <div
-            class="combustion-content-layer"
+        <img
+            src="assets/Combustion/Combustion-BG.png"
+            class="combustion-background"
+            alt=""
+            aria-hidden="true"
         >
 
 
-            <!-- =================================================
-                 HERO SECTION
-            ================================================== -->
+        <!-- =====================================================
+             FIRE PARTICLES
+        ====================================================== -->
 
-            <section
-                class="combustion-hero"
-                id="home"
-            >
+        <div class="fire-particles">
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+            <span class="fire-particle"></span>
+
+        </div>
 
 
-                <!-- =============================================
-                     HERO CONTENT
-                ============================================== -->
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
 
-                <div
-                    class="combustion-hero-content"
-                >
+        <div class="combustion-content-layer">
+
+            <section class="combustion-hero">
+
+                <div class="combustion-hero-content">
 
 
-                    <!-- =========================================
-                         LIMITLEZZ PRESENTS BADGE
-                    ========================================== -->
+                    <div class="limitless-badge">
 
-                    <div
-                        class="limitless-badge"
-                    >
+                        <i class="fa-solid fa-infinity"></i>
 
-                        <i
-                            class="fa-solid fa-infinity"
-                            aria-hidden="true"
-                        ></i>
-
-                        <span>
-                            LIMITLEZZ PRESENTS
-                        </span>
+                        LIMITLEZZ PRESENTS
 
                     </div>
 
 
-                    <!-- =========================================
-                         HERO TITLE
-                    ========================================== -->
-
-                    <h1
-                        class="hero-title"
-                    >
+                    <h1 class="hero-title">
 
                         LIMITLESS
 
@@ -697,26 +1845,14 @@
                     </h1>
 
 
-                    <!-- =========================================
-                         HERO SUBTITLE
-                    ========================================== -->
-
-                    <p
-                        class="hero-subtitle"
-                    >
+                    <p class="hero-subtitle">
 
                         Something powerful is coming.
 
                     </p>
 
 
-                    <!-- =========================================
-                         HERO DESCRIPTION
-                    ========================================== -->
-
-                    <p
-                        class="hero-description"
-                    >
+                    <p class="hero-description">
 
                         We built Limitlezz to push hosting beyond
                         its limits. Now we're taking that same
@@ -726,23 +1862,14 @@
                     </p>
 
 
-                    <!-- =========================================
-                         EXPLORE BUTTON
-                    ========================================== -->
-
                     <a
                         href="#combustion"
                         class="explore-btn"
                     >
 
-                        <span>
-                            Explore
-                        </span>
+                        Explore
 
-                        <i
-                            class="fa-solid fa-arrow-down"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-arrow-down"></i>
 
                     </a>
 
@@ -752,43 +1879,22 @@
 
 
             <!-- =================================================
-                 TRANSITION SECTION
+                 TRANSITION
             ================================================== -->
 
-            <section
-                class="combustion-transition"
-            >
+            <section class="combustion-transition">
+
+                <div class="transition-content">
 
 
-                <!-- =============================================
-                     TRANSITION CONTENT
-                ============================================== -->
-
-                <div
-                    class="transition-content"
-                >
-
-
-                    <!-- =========================================
-                         TRANSITION LABEL
-                    ========================================== -->
-
-                    <span
-                        class="transition-label"
-                    >
+                    <span class="transition-label">
 
                         LIMITLEZZ × THE NEXT GENERATION
 
                     </span>
 
 
-                    <!-- =========================================
-                         TRANSITION TITLE
-                    ========================================== -->
-
-                    <h2
-                        class="transition-title"
-                    >
+                    <h2 class="transition-title">
 
                         WE'RE
 
@@ -799,13 +1905,7 @@
                     </h2>
 
 
-                    <!-- =========================================
-                         TRANSITION DESCRIPTION
-                    ========================================== -->
-
-                    <p
-                        class="transition-description"
-                    >
+                    <p class="transition-description">
 
                         Same foundation.
 
@@ -825,7 +1925,7 @@
 
 
             <!-- =================================================
-                 COMBUSTION BRAND SECTION
+                 COMBUSTION
             ================================================== -->
 
             <section
@@ -833,54 +1933,42 @@
                 id="combustion"
             >
 
+                <div class="fire-glow one"></div>
 
-                <!-- =============================================
-                     COMBUSTION CONTENT
-                ============================================== -->
+                <div class="fire-glow two"></div>
 
-                <div
-                    class="combustion-content"
-                >
+                <div class="fire-glow three"></div>
+
+                <div class="fire-ring"></div>
 
 
-                    <!-- =========================================
-                         COMBUSTION LOGO
-                    ========================================== -->
+                <div class="combustion-content">
+
+
+                    <!-- Logo -->
 
                     <img
                         src="assets/details/combustion.png"
                         class="combustion-logo"
                         alt="Combustion"
+                        onerror="this.style.display='none';"
                     >
 
 
-                    <!-- =========================================
-                         BRAND BADGE
-                    ========================================== -->
+                    <!-- Badge -->
 
-                    <div
-                        class="brand-badge"
-                    >
+                    <div class="brand-badge">
 
-                        <i
-                            class="fa-solid fa-fire"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-fire"></i>
 
-                        <span>
-                            A LIMITLEZZ BRAND
-                        </span>
+                        A LIMITLEZZ BRAND
 
                     </div>
 
 
-                    <!-- =========================================
-                         COMBUSTION TITLE
-                    ========================================== -->
+                    <!-- Title -->
 
-                    <h2
-                        class="combustion-title"
-                    >
+                    <h2 class="combustion-title">
 
                         COMBUSTION
 
@@ -891,13 +1979,9 @@
                     </h2>
 
 
-                    <!-- =========================================
-                         DESCRIPTION
-                    ========================================== -->
+                    <!-- Description -->
 
-                    <p
-                        class="combustion-description"
-                    >
+                    <p class="combustion-description">
 
                         Built from the infrastructure and vision
                         of LIMITLEZZ — Combustion is game hosting
@@ -906,9 +1990,7 @@
                     </p>
 
 
-                    <!-- =========================================
-                         TRY US BUTTON
-                    ========================================== -->
+                    <!-- TRY US -->
 
                     <a
                         href="https://Combustion.limitlezzhosts.qzz.io"
@@ -917,19 +1999,11 @@
                         rel="noopener noreferrer"
                     >
 
-                        <i
-                            class="fa-solid fa-fire"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-fire"></i>
 
-                        <span>
-                            TRY US
-                        </span>
+                        TRY US
 
-                        <i
-                            class="fa-solid fa-arrow-up-right-from-square"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
 
                     </a>
 
@@ -946,13 +2020,9 @@
          FOOTER
     ========================================================== -->
 
-    <footer
-        class="footer combustion-footer"
-    >
+    <footer class="footer combustion-footer">
 
-        <div
-            class="footer-content"
-        >
+        <div class="footer-content">
 
             <h3>
                 LIMITLEZZ
@@ -972,22 +2042,269 @@
 
 
     <!-- =========================================================
-         LIMITLEZZ JAVASCRIPT
+         EXISTING WEBSITE SCRIPTS
     ========================================================== -->
 
-    <script
-        src="js/cursor.js"
-    ></script>
+    <script src="js/cursor.js"></script>
 
-    <script
-        src="js/navbar.js"
-    ></script>
+    <script src="js/navbar.js"></script>
 
-    <script
-        src="js/discord.js"
-    ></script>
+    <script src="js/discord.js"></script>
 
+
+    <!-- =========================================================
+         COMBUSTION BACKGROUND SCROLL ENGINE
+
+         This DOES NOT move the background independently.
+
+         It gives the background a tiny amount of depth while
+         still keeping it attached to the page.
+
+         If you want completely natural scrolling, the script
+         can simply be removed.
+    ========================================================== -->
+
+    <script>
+
+        (() => {
+
+            const page =
+                document.querySelector(
+                    ".combustion-page"
+                );
+
+            const background =
+                document.querySelector(
+                    ".combustion-background"
+                );
+
+            if (!page || !background) {
+                return;
+            }
+
+
+            let ticking = false;
+
+
+            function updateBackground() {
+
+                const rect =
+                    page.getBoundingClientRect();
+
+                const viewportHeight =
+                    window.innerHeight;
+
+
+                /*
+                    The image is already part of the page.
+
+                    This calculation adds only a VERY small
+                    depth effect instead of detaching it from
+                    the page.
+                */
+
+                const progress =
+                    Math.max(
+                        0,
+                        Math.min(
+                            1,
+                            (-rect.top) /
+                            Math.max(
+                                1,
+                                page.offsetHeight -
+                                viewportHeight
+                            )
+                        )
+                    );
+
+
+                const y =
+                    progress * -35;
+
+
+                background.style.transform =
+                    `translate3d(0, ${y}px, 0) scale(1.02)`;
+
+
+                ticking =
+                    false;
+            }
+
+
+            function requestUpdate() {
+
+                if (ticking) {
+                    return;
+                }
+
+                ticking = true;
+
+                requestAnimationFrame(
+                    updateBackground
+                );
+            }
+
+
+            window.addEventListener(
+                "scroll",
+                requestUpdate,
+                {
+                    passive: true
+                }
+            );
+
+
+            window.addEventListener(
+                "resize",
+                requestUpdate
+            );
+
+
+            requestUpdate();
+
+        })();
+
+    </script>
+
+
+    <!-- =========================================================
+         MOUSE FIRE GLOW
+    ========================================================== -->
+
+    <script>
+
+        (() => {
+
+            let glow = null;
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            let currentX = 0;
+            let currentY = 0;
+
+
+            function createGlow() {
+
+                if (glow) {
+                    return;
+                }
+
+
+                glow =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                glow.className =
+                    "combustion-mouse-glow";
+
+
+                Object.assign(
+                    glow.style,
+                    {
+
+                        position:
+                            "fixed",
+
+                        width:
+                            "260px",
+
+                        height:
+                            "260px",
+
+                        borderRadius:
+                            "50%",
+
+                        pointerEvents:
+                            "none",
+
+                        zIndex:
+                            "0",
+
+                        transform:
+                            "translate(-50%, -50%)",
+
+                        background:
+                            "radial-gradient(circle, rgba(255,80,0,.12), rgba(255,40,0,.04) 35%, transparent 72%)",
+
+                        filter:
+                            "blur(18px)",
+
+                        opacity:
+                            "0",
+
+                        transition:
+                            "opacity .4s ease"
+
+                    }
+                );
+
+
+                document.body.appendChild(
+                    glow
+                );
+
+            }
+
+
+            document.addEventListener(
+                "mousemove",
+                (event) => {
+
+                    createGlow();
+
+                    mouseX =
+                        event.clientX;
+
+                    mouseY =
+                        event.clientY;
+
+                    glow.style.opacity =
+                        "1";
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            function animate() {
+
+                currentX +=
+                    (mouseX - currentX)
+                    * 0.12;
+
+                currentY +=
+                    (mouseY - currentY)
+                    * 0.12;
+
+
+                if (glow) {
+
+                    glow.style.left =
+                        currentX + "px";
+
+                    glow.style.top =
+                        currentY + "px";
+
+                }
+
+
+                requestAnimationFrame(
+                    animate
+                );
+
+            }
+
+
+            animate();
+
+        })();
+
+    </script>
 
 </body>
-
 </html>
