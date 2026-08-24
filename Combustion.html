@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Combustion Hosting | Limitlezz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* =========================================================
+   COMBUSTION TRANSITION
+========================================================= */
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+transition:
+background 1.2s ease,
+color 1.2s ease;
+}
+
+/* Fire section */
+
+.combustion-section{
+min-height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+padding:120px 20px;
+
+background:
+radial-gradient(circle at 50% 80%,
+rgba(255,70,0,.35),
+transparent 45%),
+linear-gradient(
+180deg,
+#050505 0%,
+#120500 45%,
+#220800 100%
+);
+
+color:white;
+}
+
+/* Fire glow */
+
+.fire-glow{
+position:absolute;
+width:700px;
+height:700px;
+
+background:
+radial-gradient(circle,
+rgba(255,90,0,.28),
+rgba(255,30,0,.12),
+transparent 70%);
+
+filter:blur(40px);
+
+animation:firePulse 4s ease-in-out infinite;
+}
+
+@keyframes firePulse{
+
+0%,100%{
+transform:scale(.9);
+opacity:.7;
+}
+
+50%{
+transform:scale(1.1);
+opacity:1;
+}
+
+}
+
+/* Floating flames */
+
+.flame{
+position:absolute;
+bottom:-80px;
+
+width:80px;
+height:120px;
+
+background:linear-gradient(
+180deg,
+#fff36a,
+#ff9d00,
+#ff3b00
+);
+
+border-radius:
+50% 50% 45% 45% /
+60% 60% 40% 40%;
+
+filter:blur(1px);
+
+opacity:.18;
+
+animation:rise 7s linear infinite;
+}
+
+.flame:nth-child(2){
+left:15%;
+animation-delay:1s;
+transform:scale(.7);
+}
+
+.flame:nth-child(3){
+left:35%;
+animation-delay:3s;
+transform:scale(1.2);
+}
+
+.flame:nth-child(4){
+left:65%;
+animation-delay:2s;
+transform:scale(.8);
+}
+
+.flame:nth-child(5){
+left:82%;
+animation-delay:4s;
+transform:scale(1.1);
+}
+
+@keyframes rise{
+
+0%{
+bottom:-120px;
+opacity:0;
+transform:translateX(0) scale(.7);
+}
+
+20%{
+opacity:.2;
+}
+
+100%{
+bottom:110%;
+opacity:0;
+transform:translateX(80px) scale(1.3);
+}
+
+}
+
+/* Content */
+
+.combustion-content{
+position:relative;
+z-index:5;
+
+max-width:850px;
+text-align:center;
+}
+
+.combustion-badge{
+
+display:inline-flex;
+align-items:center;
+gap:10px;
+
+padding:8px 18px;
+
+border:1px solid rgba(255,100,0,.55);
+
+border-radius:999px;
+
+background:rgba(255,60,0,.08);
+
+color:#ff9d32;
+
+font-size:14px;
+
+margin-bottom:25px;
+
+box-shadow:
+0 0 30px rgba(255,60,0,.12);
+}
+
+.combustion-content h2{
+
+font-size:
+clamp(55px,9vw,110px);
+
+line-height:.9;
+
+margin:0;
+
+font-weight:700;
+
+background:
+linear-gradient(
+180deg,
+#fff7c7,
+#ffb300 45%,
+#ff3b00 85%
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+color:transparent;
+
+text-shadow:
+0 0 45px rgba(255,70,0,.25);
+}
+
+.combustion-content h2 span{
+display:block;
+font-size:.35em;
+letter-spacing:8px;
+margin-top:25px;
+
+background:none;
+color:#ff8a00;
+-webkit-text-fill-color:#ff8a00;
+}
+
+.combustion-content p{
+
+max-width:650px;
+margin:30px auto;
+
+font-size:18px;
+line-height:1.7;
+
+color:#ffd9bd;
+}
+
+/* Combustion logo */
+
+.combustion-logo{
+
+width:180px;
+height:180px;
+
+object-fit:contain;
+
+margin-bottom:20px;
+
+filter:
+drop-shadow(0 0 25px rgba(255,80,0,.55));
+
+}
+
+/* Try button */
+
+.combustion-btn{
+
+display:inline-flex;
+
+align-items:center;
+justify-content:center;
+gap:12px;
+
+padding:16px 42px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-weight:700;
+
+font-size:17px;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#ff4b00,
+#ff1e00
+);
+
+box-shadow:
+0 0 35px rgba(255,60,0,.3);
+
+transition:
+transform .3s ease,
+box-shadow .3s ease,
+filter .3s ease;
+}
+
+.combustion-btn:hover{
+
+transform:
+translateY(-4px)
+scale(1.03);
+
+box-shadow:
+0 0 55px rgba(255,70,0,.65);
+
+filter:brightness(1.15);
+}
+
+/* Small text */
+
+.combustion-note{
+
+margin-top:18px !important;
+
+font-size:13px !important;
+
+color:#b8795e !important;
+}
+
+/* Fire divider */
+
+.fire-divider{
+
+height:2px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#ff4b00,
+#ffb300,
+#ff4b00,
+transparent
+);
+
+box-shadow:
+0 0 20px rgba(255,60,0,.5);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cursor-glow"></div>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+<i class="fa-solid fa-infinity"></i>
+
+<span class="logo-text">
+LIMITLE<span>ZZ</span>
+</span>
+
+</a>
+
+<ul class="nav-links">
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li class="dropdown">
+
+<a href="#">
+
+<i class="fa-solid fa-gamepad"></i>
+
+Game Hosting
+
+<i class="fa-solid fa-chevron-down arrow"></i>
+
+</a>
+
+<div class="dropdown-menu">
+
+<a href="gmsdecide.html">
+
+<i class="fa-solid fa-cube"></i>
+
+Minecraft Java
+
+</a>
+
+<a href="gmsdecide.html">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+Minecraft Bedrock
+
+</a>
+
+</div>
+
+</li>
+
+<li>
+
+<a href="vps.html">
+
+<i class="fa-solid fa-server"></i>
+
+VPS Hosting
+
+</a>
+
+</li>
+
+<li>
+
+<a href="customs.html">
+
+<i class="fa-solid fa-code"></i>
+
+Customs
+
+</a>
+
+</li>
+
+<li>
+
+<a href="team.html">
+
+<i class="fa-solid fa-users"></i>
+
+Team
+
+</a>
+
+</li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<a href="#" id="discord-login" class="login-btn">
+
+<i class="fa-brands fa-discord"></i>
+
+Login
+
+</a>
+
+<div
+id="user-profile"
+class="user-profile"
+style="display:none;"
+>
+
+<img
+id="user-avatar"
+src=""
+alt="Avatar"
+>
+
+<span id="user-name"></span>
+
+<i class="fa-solid fa-chevron-down"></i>
+
+<div class="profile-dropdown">
+
+<a href="dashboard.html">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="#">
+<i class="fa-solid fa-gamepad"></i>
+My Servers
+</a>
+
+<a href="#">
+<i class="fa-solid fa-server"></i>
+VPS
+</a>
+
+<a href="#">
+<i class="fa-solid fa-credit-card"></i>
+Billing
+</a>
+
+<a href="#">
+<i class="fa-solid fa-gear"></i>
+Settings
+</a>
+
+<hr>
+
+<a href="#" id="logout-btn" class="logout">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Mobile -->
+
+<div class="mobile-actions">
+
+<a href="vps.html" class="mobile-vps">
+VPS
+</a>
+
+<button class="mobile-menu-btn">
+
+<i class="fa-solid fa-ellipsis-vertical"></i>
+
+</button>
+
+</div>
+
+<div class="mobile-menu">
+
+<a href="gmsdecide.html">
+
+<i class="fa-solid fa-gamepad"></i>
+
+Game Hosting
+
+</a>
+
+<a href="customs.html">
+
+<i class="fa-solid fa-code"></i>
+
+Customs
+
+</a>
+
+<a href="team.html">
+
+<i class="fa-solid fa-users"></i>
+
+Team
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- =========================================================
+     NORMAL LIMITLEZZ INTRO
+========================================================= -->
+
+<section class="hero">
+
+<div class="status">
+
+<i class="fa-solid fa-fire"></i>
+
+Something New Is Igniting
+
+</div>
+
+<h1>
+
+Power
+
+<br>
+
+Beyond Limits
+
+</h1>
+
+<p>
+
+Limitlezz is introducing a new generation of game hosting,
+built for communities that demand performance.
+
+</p>
+
+<div class="buttons">
+
+<a href="#combustion" class="btn">
+
+Discover Combustion
+
+</a>
+
+<a href="#services" class="btn-outline">
+
+Our Services
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="section" id="services">
+
+<h2>Why Game Hosting?</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+
+<i class="fa-solid fa-bolt"></i>
+
+Performance
+
+</h3>
+
+<p>
+
+Powerful infrastructure designed for smooth gameplay
+and demanding Minecraft communities.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Protection
+
+</h3>
+
+<p>
+
+Reliable infrastructure and protection designed
+to keep your community online.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+<i class="fa-solid fa-gauge-high"></i>
+
+Speed
+
+</h3>
+
+<p>
+
+Fast deployment and high-performance networking
+for your servers.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FIRE TRANSITION
+========================================================= -->
+
+<div class="fire-divider"></div>
+
+<section
+class="combustion-section"
+id="combustion"
+>
+
+<div class="fire-glow"></div>
+
+<div class="flame"></div>
+<div class="flame"></div>
+<div class="flame"></div>
+<div class="flame"></div>
+<div class="flame"></div>
+
+<div class="combustion-content">
+
+<div class="combustion-badge">
+
+<i class="fa-solid fa-fire"></i>
+
+A Limitlezz Hosting Brand
+
+</div>
+
+
+<!--
+IMPORTANT:
+Put your Combustion logo here.
+
+Example:
+
+assets/details/combustion.png
+-->
+
+<img
+src="assets/details/combustion.png"
+alt="Combustion Hosting"
+class="combustion-logo"
+onerror="this.style.display='none';"
+>
+
+
+<h2>
+
+COMBUSTION
+
+<span>HOSTING</span>
+
+</h2>
+
+
+<p>
+
+Where performance meets fire.
+
+Combustion is built for gamers,
+communities and creators who want
+powerful Minecraft hosting without
+the limits.
+
+</p>
+
+
+<a
+href="https://Combustion.limitlezzhosts.qzz.io"
+class="combustion-btn"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<i class="fa-solid fa-fire"></i>
+
+TRY US
+
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+
+<p class="combustion-note">
+
+Powered by Limitlezz
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<h3>LIMITLEZZ</h3>
+
+<p>
+
+Built by the Limitlezz Team.
+
+</p>
+
+<p>
+
+Powered by caffeine and bad decisions.
+
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
+
+<script src="js/cursor.js"></script>
+
+<script src="js/navbar.js"></script>
+
+<script src="js/discord.js"></script>
+
+
+<!-- =========================================================
+     FIRE SCROLL EFFECT
+========================================================= -->
+
+<script>
+
+const combustion =
+document.getElementById("combustion");
+
+window.addEventListener("scroll", () => {
+
+if(!combustion) return;
+
+const rect =
+combustion.getBoundingClientRect();
+
+const progress =
+Math.min(
+Math.max(
+1 - rect.top / window.innerHeight,
+0
+),
+1
+);
+
+document.documentElement.style
+.setProperty(
+"--fire-progress",
+progress
+);
+
+});
+
+</script>
+
+</body>
+
+</html>
