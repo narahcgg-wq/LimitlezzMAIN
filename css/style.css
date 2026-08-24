@@ -1132,3 +1132,43 @@ background:rgba(255,255,255,.08);
 color:#ff7070 !important;
 
 }
+
+/* =========================================================
+   COMBUSTION CUSTOM BACKGROUND
+========================================================= */
+
+.combustion-bg {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    min-height: 100%;
+
+    transform: translateX(-50%);
+
+    background-image:
+        url("../assets/Combustion/Combustion-bg.png");
+
+    background-repeat: no-repeat;
+
+    background-position: center top;
+
+    background-size: 100% auto;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   COMBUSTION CONTENT LAYER
+========================================================= */
+
+.combustion-content-layer {
+    position: relative;
+
+    z-index: 1;
+}
